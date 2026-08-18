@@ -95,6 +95,34 @@ DEVICE_DENSITY_BUCKET=""
 DEVICE_ABIS=()
 DEVICE_LOCALES=()
 
+if [[ -t 1 && -z "${NO_COLOR:-}" ]]; then
+    C_RESET=$'\033[0m'
+    C_BOLD=$'\033[1m'
+    C_DIM=$'\033[2m'
+    C_CYAN=$'\033[36m'
+    C_BLUE=$'\033[34m'
+    C_GREEN=$'\033[32m'
+    C_YELLOW=$'\033[33m'
+    C_RED=$'\033[31m'
+else
+    C_RESET=""
+    C_BOLD=""
+    C_DIM=""
+    C_CYAN=""
+    C_BLUE=""
+    C_GREEN=""
+    C_YELLOW=""
+    C_RED=""
+fi
+
+section() {
+    printf '\n%s╭─ %s ─╮%s\n' "$C_CYAN" "$1" "$C_RESET"
+}
+
+rule() {
+    printf '%s%s%s\n' "$C_DIM" '────────────────────────────────────────────────────────────' "$C_RESET"
+}
+
 usage() {
     cat <<EOF
 Usage:
@@ -138,15 +166,19 @@ EOF
 }
 
 info() {
-    printf '%s\n' "$*"
+    printf '%s•%s %s\n' "$C_DIM" "$C_RESET" "$*"
+}
+
+success() {
+    printf '%s✓%s %s\n' "$C_GREEN" "$C_RESET" "$*"
 }
 
 warn() {
-    printf '%s: warning: %s\n' "$SCRIPT_NAME" "$*" >&2
+    printf '%s⚠ %s%s: %s%s\n' "$C_YELLOW" "$C_BOLD" "$SCRIPT_NAME" "$*" "$C_RESET" >&2
 }
 
 error() {
-    printf '%s: error: %s\n' "$SCRIPT_NAME" "$*" >&2
+    printf '%s✗ %s%s: %s%s\n' "$C_RED" "$C_BOLD" "$SCRIPT_NAME" "$*" "$C_RESET" >&2
 }
 
 fatal() {
@@ -423,27 +455,28 @@ interactive_pick_file() {
         shopt -u nullglob
         shopt -u dotglob
 
-        printf '\nFolder: %s\n' "$directory"
+        section "PILIH FILE APKM"
+        printf '%s📁 Folder:%s %s\n' "$C_BOLD" "$C_RESET" "$directory"
         if [[ "$SHOW_HIDDEN" -eq 1 ]]; then
-            printf 'Mode file tersembunyi: tampil\n'
+            printf '%s◉ File tersembunyi: tampil%s\n' "$C_GREEN" "$C_RESET"
         else
-            printf 'Mode file tersembunyi: sembunyi\n'
+            printf '%s◉ File tersembunyi: sembunyi%s\n' "$C_DIM" "$C_RESET"
         fi
+        rule
 
         if [[ "${#candidates[@]}" -eq 0 ]]; then
-            info "Tidak ada file .apkm di folder ini."
+            printf '%s  (tidak ada file .apkm di folder ini)%s\n' "$C_DIM" "$C_RESET"
         else
             for index in "${!candidates[@]}"; do
-                printf '  %d) %s\n' "$((index + 1))" "$(basename "${candidates[$index]}")"
+                printf '  %s%2d%s  %s%s%s\n' "$C_CYAN" "$((index + 1))" "$C_RESET" \
+                    "$C_BOLD" "$(basename "${candidates[$index]}")" "$C_RESET"
             done
         fi
 
         [[ "$NON_INTERACTIVE" -eq 0 ]] || return 1
-        printf '  h) toggle tampil/sembunyi file tersembunyi\n'
-        printf '  d) ganti folder\n'
-        printf '  r) refresh\n'
-        printf '  q) keluar\n'
-        read -r -p "Pilih file: " answer || return 1
+        printf '  %s[h]%s toggle tersembunyi   %s[d]%s ganti folder\n' "$C_CYAN" "$C_RESET" "$C_CYAN" "$C_RESET"
+        printf '  %s[r]%s refresh              %s[q]%s keluar\n' "$C_CYAN" "$C_RESET" "$C_CYAN" "$C_RESET"
+        read -r -p "${C_BOLD}Pilih file${C_RESET} › " answer || return 1
         case "${answer,,}" in
             h) SHOW_HIDDEN=$((1 - SHOW_HIDDEN)) ;;
             d)
@@ -603,7 +636,13 @@ extract_archive() {
         index=$((index + 1))
         printf -v output_name 'apk-%03d.apk' "$index"
         output_file="$WORK_DIR/$output_name"
-        info "Mengekstrak ${entry##*/} ($index/${#APK_ENTRIES[@]})..."
+        if [[ "$NON_INTERACTIVE" -eq 0 && -t 1 ]]; then
+            printf '\r\033[K%sMengekstrak%s %s%-34s%s %2d/%d' \
+                "$C_DIM" "$C_RESET" "$C_BOLD" "${entry##*/}" "$C_RESET" \
+                "$index" "${#APK_ENTRIES[@]}"
+        else
+            info "Mengekstrak ${entry##*/} ($index/${#APK_ENTRIES[@]})..."
+        fi
         if ! unzip -p "$ARCHIVE" "$entry" > "$output_file"; then
             fatal "APK tidak dapat diekstrak: $entry"
         fi
@@ -613,6 +652,10 @@ extract_archive() {
         APK_NAMES+=("${entry##*/}")
         APK_SIZES+=("$(file_size "$output_file")")
     done
+    if [[ "$NON_INTERACTIVE" -eq 0 && -t 1 ]]; then
+        printf '\r\033[K%s✓%s Ekstraksi selesai — %d APK\n' \
+            "$C_GREEN" "$C_RESET" "${#APK_ENTRIES[@]}"
+    fi
 
     while IFS= read -r entry; do
         [[ -n "$entry" ]] || continue
@@ -682,6 +725,14 @@ load_manifest_metadata() {
     json_array_into '(.dpis // .densities // .density // .info.dpis // []) | if type == "array" then .[] else . end | tostring' META_DPIS
     json_array_into '(.languages // .locales // .langs // .info.languages // []) | if type == "array" then .[] else . end | tostring' META_LANGUAGES
     json_array_into '(.capabilities // .features // .info.capabilities // []) | if type == "array" then .[] else . end | tostring' META_CAPABILITIES
+    local i value normalized_arches=()
+    for i in "${!META_ARCHES[@]}"; do
+        value="$(abi_label "${META_ARCHES[$i]}")"
+        if [[ " ${normalized_arches[*]} " != *" $value "* ]]; then
+            normalized_arches+=("$value")
+        fi
+    done
+    META_ARCHES=("${normalized_arches[@]}")
 }
 
 run_aapt_badging() {
@@ -710,7 +761,7 @@ derive_split_metadata() {
     local i
     for i in "${!APK_KIND[@]}"; do
         case "${APK_KIND[$i]}" in
-            architecture) append_unique META_ARCHES "${APK_VALUE[$i]}" ;;
+            architecture) append_unique META_ARCHES "$(abi_label "${APK_VALUE[$i]}")" ;;
             density) append_unique META_DPIS "${APK_VALUE[$i]}" ;;
             language) append_unique META_LANGUAGES "${APK_VALUE[$i]}" ;;
         esac
@@ -745,7 +796,7 @@ load_aapt_fallbacks() {
             token="${token//\'/}"
             [[ "$token" == native-code: ]] && continue
             [[ "$token" == *-* || "$token" == *_* ]] || continue
-            append_unique META_ARCHES "$token"
+            append_unique META_ARCHES "$(abi_label "$token")"
         done
     fi
 }
@@ -767,6 +818,15 @@ normalise_abi() {
         mips64) printf 'mips64\n' ;;
         mips) printf 'mips\n' ;;
         *) printf '%s\n' "${1,,}" ;;
+    esac
+}
+
+abi_label() {
+    case "$(normalise_abi "$1")" in
+        arm64_v8a) printf 'arm64-v8a\n' ;;
+        armeabi_v7a) printf 'armeabi-v7a\n' ;;
+        x86_64) printf 'x86_64\n' ;;
+        *) normalise_abi "$1" ;;
     esac
 }
 
@@ -813,9 +873,12 @@ read_device_profile() {
     setting_locales="$(settings get system locales 2>/dev/null || true)"
     IFS=',' read -ra locale_values <<< "$setting_locales"
     for locale in "${locale_values[@]}"; do
+        # Some ROMs print a Binder failure to stdout together with the locale
+        # result. Only accept actual BCP-47-like locale tokens.
+        [[ "$locale" =~ ^[[:alpha:]]{2,3}([-_][rR]?[[:alnum:]]{2,8})?$ ]] || continue
         locale="$(normalise_language "$locale")"
         [[ -n "$locale" && "$locale" != null ]] || continue
-        DEVICE_LOCALES+=("$locale")
+        append_unique DEVICE_LOCALES "$locale"
     done
     for value in "$(getprop_value persist.sys.locale)" "$(getprop_value ro.product.locale)"; do
         [[ -n "$value" ]] || continue
@@ -839,7 +902,7 @@ classify_apk() {
         arm64_v8a|arm64-v8a|armeabi_v7a|armeabi-v7a|armeabi|x86_64|x86-64|x86|mips64|mips)
             printf 'architecture|%s\n' "$(normalise_abi "$normal")" ;;
         ldpi|mdpi|tvdpi|hdpi|xhdpi|xxhdpi|xxxhdpi|anydpi|nodpi)
-            printf 'density|$normal\n' ;;
+            printf 'density|%s\n' "$normal" ;;
         b+*|??|??-*|??_*)
             printf 'language|%s\n' "$(normalise_language "$normal")" ;;
         *)
@@ -971,26 +1034,86 @@ join_values() {
     local -a values=("$@")
     if [[ "${#values[@]}" -eq 0 ]]; then
         printf 'Tidak tersedia\n'
-    else
-        local IFS=', '
-        printf '%s\n' "${values[*]}"
+        return 0
     fi
+    local joined="" value
+    for value in "${values[@]}"; do
+        [[ -n "$joined" ]] && joined+=', '
+        joined+="$value"
+    done
+    # Keep long ABI/language lists readable on a narrow Termux screen.
+    awk -v text="$joined" 'BEGIN {
+        indent="                         "; count=split(text, parts, ", "); line=""
+        for (i=1; i<=count; i++) {
+            nextline=(line == "" ? parts[i] : line ", " parts[i])
+            if (line != "" && length(nextline) > 72) {
+                print line
+                line=indent parts[i]
+            } else line=nextline
+        }
+        if (line != "") print line
+    }'
+}
+
+dpi_bucket_for_value() {
+    case "$1" in
+        120) printf 'ldpi\n' ;;
+        160) printf 'mdpi\n' ;;
+        213) printf 'tvdpi\n' ;;
+        240) printf 'hdpi\n' ;;
+        320) printf 'xhdpi\n' ;;
+        480) printf 'xxhdpi\n' ;;
+        640) printf 'xxxhdpi\n' ;;
+        *) printf '\n' ;;
+    esac
+}
+
+join_dpi_values() {
+    local -a values=("$@") formatted=()
+    local value bucket
+    declare -A seen_buckets=()
+    for value in "${values[@]}"; do
+        if [[ "$value" =~ ^[0-9]+$ ]]; then
+            bucket="$(dpi_bucket_for_value "$value")"
+            if [[ -n "$bucket" ]]; then
+                formatted+=("$value ($bucket)")
+                seen_buckets["$bucket"]=1
+            else
+                formatted+=("$value dpi")
+            fi
+        else
+            case "$value" in
+                ldpi|mdpi|tvdpi|hdpi|xhdpi|xxhdpi|xxxhdpi)
+                    [[ -n "${seen_buckets[$value]+yes}" ]] && continue
+                    ;;
+            esac
+            formatted+=("$value")
+        fi
+    done
+    join_values "${formatted[@]}"
 }
 
 show_device_profile() {
-    printf '\nProfil perangkat:\n'
-    printf '  Android SDK       : %s\n' "${DEVICE_SDK:-Tidak diketahui}"
-    printf '  ABI               : %s\n' "$(join_values "${DEVICE_ABIS[@]}")"
-    printf '  Kepadatan         : %s (%s)\n' "${DEVICE_DENSITY:-Tidak diketahui}" "${DEVICE_DENSITY_BUCKET:-Tidak diketahui}"
-    printf '  Bahasa/locale     : %s\n' "$(join_values "${DEVICE_LOCALES[@]}")"
+    section "PROFIL PERANGKAT"
+    printf '  %s%-18s%s %s\n' "$C_CYAN" "Android SDK" "$C_RESET" "${DEVICE_SDK:-Tidak diketahui}"
+    printf '  %s%-18s%s %s\n' "$C_CYAN" "ABI" "$C_RESET" "$(join_values "${DEVICE_ABIS[@]}")"
+    printf '  %s%-18s%s %s (%s)\n' "$C_CYAN" "Kepadatan" "$C_RESET" \
+        "${DEVICE_DENSITY:-Tidak diketahui}" "${DEVICE_DENSITY_BUCKET:-Tidak diketahui}"
+    printf '  %s%-18s%s %s\n' "$C_CYAN" "Bahasa/locale" "$C_RESET" "$(join_values "${DEVICE_LOCALES[@]}")"
+    rule
 }
 
 show_file_table() {
     local i marker kind_label
-    printf '\nAPK dalam paket (angka = toggle pilihan):\n'
-    printf '  %-4s %-9s %-5s %-34s %s\n' "No" "Kategori" "Pasang" "Nama file" "Ukuran"
+    section "PILIHAN SPLIT APK"
+    printf '%s  %-3s %-11s %-5s %-34s %s%s\n' "$C_BOLD" "No" "Kategori" "Pilih" "Nama file" "Ukuran" "$C_RESET"
+    rule
     for i in "${!APK_NAMES[@]}"; do
-        if [[ "${APK_SELECTED[$i]}" -eq 1 ]]; then marker='[x]'; else marker='[ ]'; fi
+        if [[ "${APK_SELECTED[$i]}" -eq 1 ]]; then
+            marker="${C_GREEN}✓${C_RESET}"
+        else
+            marker="${C_DIM}·${C_RESET}"
+        fi
         case "${APK_KIND[$i]}" in
             base) kind_label="base" ;;
             architecture) kind_label="arsitektur" ;;
@@ -998,41 +1121,43 @@ show_file_table() {
             language) kind_label="bahasa" ;;
             *) kind_label="lainnya" ;;
         esac
-        printf '  %-4s %-9s %-5s %-34s %s\n' \
+        printf '  %-3s %-11s %-5s %-34s %s\n' \
             "$((i + 1))" "$kind_label" "$marker" "${APK_NAMES[$i]}" "$(format_bytes "${APK_SIZES[$i]}")"
     done
     rebuild_selected_lists
     local total=0 size
     for size in "${APK_SIZES[@]}"; do total=$((total + size)); done
-    printf '  Total arsip APK    : %s (%d file)\n' "$(format_bytes "$total")" "${#APK_NAMES[@]}"
+    rule
+    printf '  %sTotal APKM   :%s %s (%d file)\n' "$C_CYAN" "$C_RESET" "$(format_bytes "$total")" "${#APK_NAMES[@]}"
     total=0
     for i in "${SELECTED_INDICES[@]}"; do total=$((total + APK_SIZES[$i])); done
-    printf '  Total dipilih      : %s (%d file)\n' "$(format_bytes "$total")" "${#SELECTED_FILES[@]}"
+    printf '  %sDipilih      :%s %s (%d file)\n' "$C_GREEN" "$C_RESET" "$(format_bytes "$total")" "${#SELECTED_FILES[@]}"
     return 0
 }
 
 show_metadata() {
     local archive_size
     archive_size="$(file_size "$ARCHIVE")"
-    printf '\n================ APKM ================\n'
-    printf 'Nama aplikasi       : %s\n' "${META_APP_NAME:-Tidak tersedia}"
-    printf 'Paket aplikasi      : %s\n' "${META_PACKAGE:-Tidak tersedia}"
-    printf 'Nama file           : %s\n' "$(basename "$ARCHIVE")"
-    printf 'Ukuran file         : %s\n' "$(format_bytes "$archive_size")"
-    printf 'Versi               : %s (versionCode %s)\n' \
+    section "INFORMASI APKM"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Nama aplikasi" "$C_RESET" "${META_APP_NAME:-Tidak tersedia}"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Paket aplikasi" "$C_RESET" "${META_PACKAGE:-Tidak tersedia}"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Nama file" "$C_RESET" "$(basename "$ARCHIVE")"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Ukuran file" "$C_RESET" "$(format_bytes "$archive_size")"
+    printf '  %s%-22s%s %s (code %s)\n' "$C_CYAN" "Versi" "$C_RESET" \
         "${META_VERSION_NAME:-Tidak tersedia}" "${META_VERSION_CODE:-Tidak tersedia}"
-    printf 'Versi minimal Android: %s\n' "${META_MIN_API:-Tidak tersedia}"
-    printf 'Arsitektur APKM     : %s\n' "$(join_values "${META_ARCHES[@]}")"
-    printf 'DPI APKM            : %s\n' "$(join_values "${META_DPIS[@]}")"
-    printf 'Bahasa APKM         : %s\n' "$(join_values "${META_LANGUAGES[@]}")"
-    printf 'Release/variant     : %s / %s\n' \
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Minimal Android" "$C_RESET" "${META_MIN_API:-Tidak tersedia}"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Arsitektur" "$C_RESET" "$(join_values "${META_ARCHES[@]}")"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "DPI/density" "$C_RESET" "$(join_dpi_values "${META_DPIS[@]}")"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Bahasa" "$C_RESET" "$(join_values "${META_LANGUAGES[@]}")"
+    printf '  %s%-22s%s %s / %s\n' "$C_CYAN" "Release / variant" "$C_RESET" \
         "${META_RELEASE_TITLE:-Tidak tersedia}" "${META_VARIANT:-Tidak tersedia}"
-    printf 'Capabilities         : %s\n' "$(join_values "${META_CAPABILITIES[@]}")"
-    printf 'Status tanda tangan : %s\n' "$SIGNATURE_STATUS"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Capabilities" "$C_RESET" "$(join_values "${META_CAPABILITIES[@]}")"
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Verifikasi tanda tangan" "$C_RESET" "$SIGNATURE_STATUS"
     if [[ -n "$SIGNATURE_DIGEST" ]]; then
-        printf 'SHA-256 sertifikat  : %s\n' "$SIGNATURE_DIGEST"
+        printf '  %s%-22s%s %s\n' "$C_CYAN" "SHA-256 sertifikat" "$C_RESET" "$SIGNATURE_DIGEST"
     fi
-    printf '=======================================\n'
+    printf '  %s%-22s%s %s\n' "$C_CYAN" "Metadata" "$C_RESET" "$METADATA_ENTRY"
+    rule
     return 0
 }
 
@@ -1074,8 +1199,9 @@ manual_toggle_menu() {
     local answer number
     while true; do
         show_file_table
-        printf '\nEnter = lanjut, a = hitung otomatis, t = toggle nomor, q = batal\n'
-        read -r -p "Pilihan: " answer || return 1
+        printf '\n%sEnter%s lanjut   %sa%s otomatis   %st%s toggle nomor   %sq%s batal\n' \
+            "$C_BOLD" "$C_RESET" "$C_CYAN" "$C_RESET" "$C_CYAN" "$C_RESET" "$C_CYAN" "$C_RESET"
+        read -r -p "${C_BOLD}Pilihan${C_RESET} › " answer || return 1
         case "${answer,,}" in
             "") return 0 ;;
             a) auto_select_splits ;;
@@ -1103,7 +1229,7 @@ select_splits() {
 
     show_device_profile
     show_file_table
-    read -r -p "Gunakan pilihan otomatis perangkat? [Y/n] " answer || answer="n"
+    read -r -p "${C_BOLD}Gunakan pilihan otomatis perangkat?${C_RESET} [Y/n] › " answer || answer="n"
     if [[ "${answer,,}" == n || "${answer,,}" == no ]]; then
         # Start with all compatible/known choices visible, then let the user
         # toggle individual entries. This covers ABI, DPI, language, and other
@@ -1178,20 +1304,23 @@ choose_operation() {
         OPERATION="$OPERATION_REQUESTED"
     fi
 
-    printf '\nAplikasi sudah terpasang: %s\n' "$META_PACKAGE"
-    printf '  Versi terpasang : %s (versionCode %s)\n' \
+    section "STATUS INSTALASI"
+    printf '  %s%-20s%s %s\n' "$C_CYAN" "Paket terpasang" "$C_RESET" "$META_PACKAGE"
+    printf '  %s%-20s%s %s (code %s)\n' "$C_CYAN" "Versi terpasang" "$C_RESET" \
         "${INSTALLED_VERSION_NAME:-Tidak diketahui}" "${INSTALLED_VERSION_CODE:-Tidak diketahui}"
-    printf '  Versi APKM      : %s (versionCode %s)\n' \
+    printf '  %s%-20s%s %s (code %s)\n' "$C_CYAN" "Versi APKM" "$C_RESET" \
         "${META_VERSION_NAME:-Tidak diketahui}" "${META_VERSION_CODE:-Tidak diketahui}"
-    printf 'Operasi otomatis: %s\n' "$OPERATION"
+    printf '  %s%-20s%s %s\n' "$C_CYAN" "Rekomendasi" "$C_RESET" "$OPERATION"
+    rule
 
     if [[ "$NON_INTERACTIVE" -eq 1 ]]; then
         [[ "$OPERATION" == downgrade ]] && ALLOW_DOWNGRADE=1
         return 0
     fi
 
-    printf '  1) update\n  2) reinstall\n  3) downgrade\n  q) batal\n'
-    read -r -p "Pilih operasi [default otomatis: $OPERATION]: " answer || answer=""
+    printf '  %s1)%s update       %s2)%s reinstall\n' "$C_CYAN" "$C_RESET" "$C_CYAN" "$C_RESET"
+    printf '  %s3)%s downgrade   %sq)%s batal\n' "$C_CYAN" "$C_RESET" "$C_CYAN" "$C_RESET"
+    read -r -p "${C_BOLD}Pilih operasi${C_RESET} [otomatis: $OPERATION] › " answer || answer=""
     case "${answer,,}" in
         "") ;;
         1|update) OPERATION=update ;;
@@ -1424,15 +1553,16 @@ choose_backend() {
 show_install_summary() {
     local i total=0
     for i in "${!SELECTED_FILES[@]}"; do total=$((total + $(file_size "${SELECTED_FILES[$i]}"))); done
-    printf '\nRingkasan instalasi:\n'
-    printf '  Backend             : %s\n' "$BACKEND"
-    printf '  Operasi             : %s\n' "$OPERATION"
-    printf '  APK terpilih        : %d\n' "${#SELECTED_FILES[@]}"
-    printf '  Ukuran APK terpilih  : %s\n' "$(format_bytes "$total")"
-    printf '  Replace             : %s\n' "$([[ "$REPLACE_EXISTING" -eq 1 ]] && printf ya || printf tidak)"
-    printf '  Allow downgrade     : %s\n' "$([[ "$ALLOW_DOWNGRADE" -eq 1 || "$OPERATION" == downgrade ]] && printf ya || printf tidak)"
+    section "KONFIRMASI INSTALASI"
+    printf '  %s%-20s%s %s\n' "$C_CYAN" "Backend" "$C_RESET" "$BACKEND"
+    printf '  %s%-20s%s %s\n' "$C_CYAN" "Operasi" "$C_RESET" "$OPERATION"
+    printf '  %s%-20s%s %d APK\n' "$C_CYAN" "Split terpilih" "$C_RESET" "${#SELECTED_FILES[@]}"
+    printf '  %s%-20s%s %s\n' "$C_CYAN" "Ukuran" "$C_RESET" "$(format_bytes "$total")"
+    printf '  %s%-20s%s %s\n' "$C_CYAN" "Replace" "$C_RESET" "$([[ "$REPLACE_EXISTING" -eq 1 ]] && printf ya || printf tidak)"
+    printf '  %s%-20s%s %s\n' "$C_CYAN" "Allow downgrade" "$C_RESET" "$([[ "$ALLOW_DOWNGRADE" -eq 1 || "$OPERATION" == downgrade ]] && printf ya || printf tidak)"
+    rule
     if [[ "$NON_INTERACTIVE" -eq 0 ]]; then
-        read -r -p "Jalankan instalasi sekarang? [y/N] " answer || answer="n"
+        read -r -p "${C_BOLD}Jalankan instalasi sekarang?${C_RESET} [y/N] › " answer || answer="n"
         [[ "${answer,,}" == y || "${answer,,}" == yes ]] || return 1
     fi
     return 0

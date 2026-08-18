@@ -110,7 +110,7 @@ Mode non-interaktif untuk uji/dry-run:
   --backend normal --no-storage-prompt aplikasi.apkm
 ```
 
-Gunakan `--keep` jika ingin menyimpan APK hasil ekstraksi untuk troubleshooting.
+Gunakan `--keep` jika ingin menyimpan APK hasil ekstraksi untuk troubleshooting. Tampilan interaktif memakai warna/ikon saat berjalan di terminal; gunakan `NO_COLOR=1` jika terminal tidak mendukung ANSI color.
 
 ## Verifikasi tanda tangan
 
