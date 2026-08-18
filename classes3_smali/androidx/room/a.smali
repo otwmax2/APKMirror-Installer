@@ -1,0 +1,83 @@
+.class public final synthetic Landroidx/room/a;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Lsa/q;
+
+
+# instance fields
+.field public final synthetic p:[Ljava/lang/String;
+
+.field public final synthetic q:Ljava/util/List;
+
+.field public final synthetic r:I
+
+
+# direct methods
+.method public synthetic constructor <init>([Ljava/lang/String;Ljava/util/List;I)V
+    .registers 4
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    iput-object p1, p0, Landroidx/room/a;->p:[Ljava/lang/String;
+
+    .line 6
+    iput-object p2, p0, Landroidx/room/a;->q:Ljava/util/List;
+
+    .line 8
+    iput p3, p0, Landroidx/room/a;->r:I
+
+    .line 10
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 10
+
+    .line 1
+    iget-object v0, p0, Landroidx/room/a;->p:[Ljava/lang/String;
+
+    .line 3
+    iget-object v1, p0, Landroidx/room/a;->q:Ljava/util/List;
+
+    .line 5
+    iget v2, p0, Landroidx/room/a;->r:I
+
+    .line 7
+    check-cast p1, Ljava/lang/Integer;
+
+    .line 9
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    .line 12
+    move-result v3
+
+    .line 13
+    check-cast p2, Ljava/lang/Integer;
+
+    .line 15
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+
+    .line 18
+    move-result v4
+
+    .line 19
+    move-object v5, p3
+
+    .line 20
+    check-cast v5, Ljava/util/List;
+
+    .line 22
+    invoke-static/range {v0 .. v5}, Landroidx/room/AmbiguousColumnResolver;->b([Ljava/lang/String;Ljava/util/List;IIILjava/util/List;)Ls9/u2;
+
+    .line 25
+    move-result-object p1
+
+    .line 26
+    return-object p1
+.end method

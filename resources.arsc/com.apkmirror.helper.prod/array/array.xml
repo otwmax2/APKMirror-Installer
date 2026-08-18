@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <array name="autosize_text_sizes">
+        <dimen>8.0sp</dimen>
+        <dimen>10.0sp</dimen>
+        <dimen>12.0sp</dimen>
+        <dimen>14.0sp</dimen>
+    </array>
+</resources>

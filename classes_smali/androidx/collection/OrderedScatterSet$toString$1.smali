@@ -1,0 +1,104 @@
+.class final Landroidx/collection/OrderedScatterSet$toString$1;
+.super Lkotlin/jvm/internal/o0;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Lsa/l;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroidx/collection/OrderedScatterSet;->toString()Ljava/lang/String;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lkotlin/jvm/internal/o0;",
+        "Lsa/l<",
+        "TE;",
+        "Ljava/lang/CharSequence;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Landroidx/collection/OrderedScatterSet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroidx/collection/OrderedScatterSet<",
+            "TE;>;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Landroidx/collection/OrderedScatterSet;)V
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/collection/OrderedScatterSet<",
+            "TE;>;)V"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Landroidx/collection/OrderedScatterSet$toString$1;->this$0:Landroidx/collection/OrderedScatterSet;
+
+    .line 3
+    const/4 p1, 0x1
+
+    .line 4
+    invoke-direct {p0, p1}, Lkotlin/jvm/internal/o0;-><init>(I)V
+
+    .line 7
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/CharSequence;
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)",
+            "Ljava/lang/CharSequence;"
+        }
+    .end annotation
+
+    .line 2
+    iget-object v0, p0, Landroidx/collection/OrderedScatterSet$toString$1;->this$0:Landroidx/collection/OrderedScatterSet;
+
+    if-ne p1, v0, :cond_7
+
+    .line 3
+    const-string p1, "(this)"
+
+    return-object p1
+
+    .line 4
+    :cond_7
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 2
+
+    .line 1
+    invoke-virtual {p0, p1}, Landroidx/collection/OrderedScatterSet$toString$1;->invoke(Ljava/lang/Object;)Ljava/lang/CharSequence;
+
+    move-result-object p1
+
+    return-object p1
+.end method

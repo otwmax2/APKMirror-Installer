@@ -1,0 +1,59 @@
+.class final Lcom/google/android/gms/internal/appset/zzn;
+.super Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/google/android/gms/common/api/Api$AbstractClientBuilder<",
+        "Lcom/google/android/gms/internal/appset/zzd;",
+        "Lcom/google/android/gms/common/api/Api$ApiOptions$NoOptions;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    .line 1
+    invoke-direct {p0}, Lcom/google/android/gms/common/api/Api$AbstractClientBuilder;-><init>()V
+
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final synthetic buildClient(Landroid/content/Context;Landroid/os/Looper;Lcom/google/android/gms/common/internal/ClientSettings;Ljava/lang/Object;Lcom/google/android/gms/common/api/internal/ConnectionCallbacks;Lcom/google/android/gms/common/api/internal/OnConnectionFailedListener;)Lcom/google/android/gms/common/api/Api$Client;
+    .registers 13
+
+    .line 1
+    check-cast p4, Lcom/google/android/gms/common/api/Api$ApiOptions$NoOptions;
+
+    .line 3
+    new-instance v0, Lcom/google/android/gms/internal/appset/zzd;
+
+    .line 5
+    move-object v1, p1
+
+    .line 6
+    move-object v2, p2
+
+    .line 7
+    move-object v3, p3
+
+    .line 8
+    move-object v4, p5
+
+    .line 9
+    move-object v5, p6
+
+    .line 10
+    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/internal/appset/zzd;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/google/android/gms/common/internal/ClientSettings;Lcom/google/android/gms/common/api/internal/ConnectionCallbacks;Lcom/google/android/gms/common/api/internal/OnConnectionFailedListener;)V
+
+    .line 13
+    return-object v0
+.end method

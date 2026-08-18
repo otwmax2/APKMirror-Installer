@@ -1,0 +1,46 @@
+.class public final Lcom/google/android/gms/ads/internal/overlay/zzw;
+.super Lcom/google/android/gms/ads/internal/overlay/zzm;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# direct methods
+.method public constructor <init>(Landroid/app/Activity;)V
+    .registers 2
+
+    .line 1
+    invoke-direct {p0, p1}, Lcom/google/android/gms/ads/internal/overlay/zzm;-><init>(Landroid/app/Activity;)V
+
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final zzh(Landroid/os/Bundle;)V
+    .registers 2
+    .param p1  # Landroid/os/Bundle;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+
+    .line 1
+    const-string p1, "AdOverlayParcel is null or does not contain valid overlay type."
+
+    .line 3
+    invoke-static {p1}, Lcom/google/android/gms/ads/internal/util/zze;->zza(Ljava/lang/String;)V
+
+    .line 6
+    const/4 p1, 0x4
+
+    .line 7
+    iput p1, p0, Lcom/google/android/gms/ads/internal/overlay/zzm;->zzn:I
+
+    .line 9
+    iget-object p1, p0, Lcom/google/android/gms/ads/internal/overlay/zzm;->zzb:Landroid/app/Activity;
+
+    .line 11
+    invoke-virtual {p1}, Landroid/app/Activity;->finish()V
+
+    .line 14
+    return-void
+.end method

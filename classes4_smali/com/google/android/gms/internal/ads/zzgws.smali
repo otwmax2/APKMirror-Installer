@@ -1,0 +1,128 @@
+.class abstract Lcom/google/android/gms/internal/ads/zzgws;
+.super Lcom/google/android/gms/internal/ads/zzgwr;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Ljava/util/ListIterator;
+
+
+# direct methods
+.method public constructor <init>(Ljava/util/ListIterator;)V
+    .registers 2
+
+    .line 1
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ads/zzgwr;-><init>(Ljava/util/Iterator;)V
+
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final add(Ljava/lang/Object;)V
+    .registers 2
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 6
+    throw p1
+.end method
+
+.method public final hasPrevious()Z
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzgwr;->zzb:Ljava/util/Iterator;
+
+    .line 3
+    check-cast v0, Ljava/util/ListIterator;
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
+
+    .line 8
+    move-result v0
+
+    .line 9
+    return v0
+.end method
+
+.method public final nextIndex()I
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzgwr;->zzb:Ljava/util/Iterator;
+
+    .line 3
+    check-cast v0, Ljava/util/ListIterator;
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
+
+    .line 8
+    move-result v0
+
+    .line 9
+    return v0
+.end method
+
+.method public final previous()Ljava/lang/Object;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzgwr;->zzb:Ljava/util/Iterator;
+
+    .line 3
+    check-cast v0, Ljava/util/ListIterator;
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/ads/zzgwr;->zza(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 12
+    move-result-object v0
+
+    .line 13
+    return-object v0
+.end method
+
+.method public final previousIndex()I
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzgwr;->zzb:Ljava/util/Iterator;
+
+    .line 3
+    check-cast v0, Ljava/util/ListIterator;
+
+    .line 5
+    invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
+
+    .line 8
+    move-result v0
+
+    .line 9
+    return v0
+.end method
+
+.method public final set(Ljava/lang/Object;)V
+    .registers 2
+
+    .line 1
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    .line 3
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    .line 6
+    throw p1
+.end method

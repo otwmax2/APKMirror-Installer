@@ -1,0 +1,1532 @@
+.class public final Lcom/google/protobuf/z0;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Ljava/lang/Comparable;
+
+
+# annotations
+.annotation runtime Lcom/google/protobuf/y;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/protobuf/z0$b;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/lang/Comparable<",
+        "Lcom/google/protobuf/z0;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field private final cachedSizeField:Ljava/lang/reflect/Field;
+
+.field private final enforceUtf8:Z
+
+.field private final enumVerifier:Lcom/google/protobuf/s1$e;
+
+.field private final field:Ljava/lang/reflect/Field;
+
+.field private final fieldNumber:I
+
+.field private final mapDefaultEntry:Ljava/lang/Object;
+
+.field private final messageClass:Ljava/lang/Class;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/Class<",
+            "*>;"
+        }
+    .end annotation
+.end field
+
+.field private final oneof:Lcom/google/protobuf/f3;
+
+.field private final oneofStoredType:Ljava/lang/Class;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/Class<",
+            "*>;"
+        }
+    .end annotation
+.end field
+
+.field private final presenceField:Ljava/lang/reflect/Field;
+
+.field private final presenceMask:I
+
+.field private final required:Z
+
+.field private final type:Lcom/google/protobuf/f1;
+
+
+# direct methods
+.method private constructor <init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+    .registers 14
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "type",
+            "messageClass",
+            "presenceField",
+            "presenceMask",
+            "required",
+            "enforceUtf8",
+            "oneof",
+            "oneofStoredType",
+            "mapDefaultEntry",
+            "enumVerifier",
+            "cachedSizeField"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/reflect/Field;",
+            "I",
+            "Lcom/google/protobuf/f1;",
+            "Ljava/lang/Class<",
+            "*>;",
+            "Ljava/lang/reflect/Field;",
+            "IZZ",
+            "Lcom/google/protobuf/f3;",
+            "Ljava/lang/Class<",
+            "*>;",
+            "Ljava/lang/Object;",
+            "Lcom/google/protobuf/s1$e;",
+            "Ljava/lang/reflect/Field;",
+            ")V"
+        }
+    .end annotation
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    iput-object p1, p0, Lcom/google/protobuf/z0;->field:Ljava/lang/reflect/Field;
+
+    .line 6
+    iput-object p3, p0, Lcom/google/protobuf/z0;->type:Lcom/google/protobuf/f1;
+
+    .line 8
+    iput-object p4, p0, Lcom/google/protobuf/z0;->messageClass:Ljava/lang/Class;
+
+    .line 10
+    iput p2, p0, Lcom/google/protobuf/z0;->fieldNumber:I
+
+    .line 12
+    iput-object p5, p0, Lcom/google/protobuf/z0;->presenceField:Ljava/lang/reflect/Field;
+
+    .line 14
+    iput p6, p0, Lcom/google/protobuf/z0;->presenceMask:I
+
+    .line 16
+    iput-boolean p7, p0, Lcom/google/protobuf/z0;->required:Z
+
+    .line 18
+    iput-boolean p8, p0, Lcom/google/protobuf/z0;->enforceUtf8:Z
+
+    .line 20
+    iput-object p9, p0, Lcom/google/protobuf/z0;->oneof:Lcom/google/protobuf/f3;
+
+    .line 22
+    iput-object p10, p0, Lcom/google/protobuf/z0;->oneofStoredType:Ljava/lang/Class;
+
+    .line 24
+    iput-object p11, p0, Lcom/google/protobuf/z0;->mapDefaultEntry:Ljava/lang/Object;
+
+    .line 26
+    iput-object p12, p0, Lcom/google/protobuf/z0;->enumVerifier:Lcom/google/protobuf/s1$e;
+
+    .line 28
+    iput-object p13, p0, Lcom/google/protobuf/z0;->cachedSizeField:Ljava/lang/reflect/Field;
+
+    .line 30
+    return-void
+.end method
+
+.method private static checkFieldNumber(I)V
+    .registers 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "fieldNumber"
+        }
+    .end annotation
+
+    .line 1
+    if-lez p0, :cond_3
+
+    .line 3
+    return-void
+
+    .line 4
+    :cond_3
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    .line 6
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    .line 8
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 11
+    const-string v2, "fieldNumber must be positive: "
+
+    .line 13
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 16
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 19
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 22
+    move-result-object p0
+
+    .line 23
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    .line 26
+    throw v0
+.end method
+
+.method public static forExplicitPresenceField(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/reflect/Field;IZLcom/google/protobuf/s1$e;)Lcom/google/protobuf/z0;
+    .registers 21
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "fieldType",
+            "presenceField",
+            "presenceMask",
+            "enforceUtf8",
+            "enumVerifier"
+        }
+    .end annotation
+
+    .line 1
+    move-object/from16 v5, p3
+
+    .line 3
+    invoke-static {p1}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 6
+    const-string v0, "field"
+
+    .line 8
+    invoke-static {p0, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 11
+    const-string v0, "fieldType"
+
+    .line 13
+    move-object/from16 v3, p2
+
+    .line 15
+    invoke-static {v3, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 18
+    const-string v0, "presenceField"
+
+    .line 20
+    invoke-static {v5, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 23
+    if-eqz v5, :cond_1e
+
+    .line 25
+    invoke-static/range {p4 .. p4}, Lcom/google/protobuf/z0;->isExactlyOneBitSet(I)Z
+
+    .line 28
+    move-result v0
+
+    .line 29
+    if-eqz v0, :cond_21
+
+    .line 31
+    :cond_1e
+    move/from16 v6, p4
+
+    .line 33
+    goto :goto_3a
+
+    .line 34
+    :cond_21
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    .line 36
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    .line 38
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 41
+    const-string v0, "presenceMask must have exactly one bit set: "
+
+    .line 43
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 46
+    move/from16 v6, p4
+
+    .line 48
+    invoke-virtual {p1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 51
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 54
+    move-result-object p1
+
+    .line 55
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    .line 58
+    throw p0
+
+    .line 59
+    :goto_3a
+    new-instance v0, Lcom/google/protobuf/z0;
+
+    .line 61
+    const/4 v11, 0x0
+
+    .line 62
+    const/4 v13, 0x0
+
+    .line 63
+    const/4 v4, 0x0
+
+    .line 64
+    const/4 v7, 0x0
+
+    .line 65
+    const/4 v9, 0x0
+
+    .line 66
+    const/4 v10, 0x0
+
+    .line 67
+    move-object v1, p0
+
+    .line 68
+    move v2, p1
+
+    .line 69
+    move/from16 v8, p5
+
+    .line 71
+    move-object/from16 v12, p6
+
+    .line 73
+    invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 76
+    return-object v0
+.end method
+
+.method public static forField(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Z)Lcom/google/protobuf/z0;
+    .registers 18
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "fieldType",
+            "enforceUtf8"
+        }
+    .end annotation
+
+    .line 1
+    move-object/from16 v3, p2
+
+    .line 3
+    invoke-static {p1}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 6
+    const-string v0, "field"
+
+    .line 8
+    invoke-static {p0, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 11
+    const-string v0, "fieldType"
+
+    .line 13
+    invoke-static {v3, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 16
+    sget-object v0, Lcom/google/protobuf/f1;->MESSAGE_LIST:Lcom/google/protobuf/f1;
+
+    .line 18
+    if-eq v3, v0, :cond_2a
+
+    .line 20
+    sget-object v0, Lcom/google/protobuf/f1;->GROUP_LIST:Lcom/google/protobuf/f1;
+
+    .line 22
+    if-eq v3, v0, :cond_2a
+
+    .line 24
+    new-instance v0, Lcom/google/protobuf/z0;
+
+    .line 26
+    const/4 v12, 0x0
+
+    .line 27
+    const/4 v13, 0x0
+
+    .line 28
+    const/4 v4, 0x0
+
+    .line 29
+    const/4 v5, 0x0
+
+    .line 30
+    const/4 v6, 0x0
+
+    .line 31
+    const/4 v7, 0x0
+
+    .line 32
+    const/4 v9, 0x0
+
+    .line 33
+    const/4 v10, 0x0
+
+    .line 34
+    const/4 v11, 0x0
+
+    .line 35
+    move-object v1, p0
+
+    .line 36
+    move v2, p1
+
+    .line 37
+    move/from16 v8, p3
+
+    .line 39
+    invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 42
+    return-object v0
+
+    .line 43
+    :cond_2a
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    .line 45
+    const-string p1, "Shouldn\'t be called for repeated message fields."
+
+    .line 47
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    .line 50
+    throw p0
+.end method
+
+.method public static forFieldWithEnumVerifier(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Lcom/google/protobuf/s1$e;)Lcom/google/protobuf/z0;
+    .registers 19
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "fieldType",
+            "enumVerifier"
+        }
+    .end annotation
+
+    .line 1
+    invoke-static/range {p1 .. p1}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 4
+    const-string v0, "field"
+
+    .line 6
+    invoke-static {p0, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 9
+    new-instance v1, Lcom/google/protobuf/z0;
+
+    .line 11
+    const/4 v12, 0x0
+
+    .line 12
+    const/4 v14, 0x0
+
+    .line 13
+    const/4 v5, 0x0
+
+    .line 14
+    const/4 v6, 0x0
+
+    .line 15
+    const/4 v7, 0x0
+
+    .line 16
+    const/4 v8, 0x0
+
+    .line 17
+    const/4 v9, 0x0
+
+    .line 18
+    const/4 v10, 0x0
+
+    .line 19
+    const/4 v11, 0x0
+
+    .line 20
+    move-object v2, p0
+
+    .line 21
+    move/from16 v3, p1
+
+    .line 23
+    move-object/from16 v4, p2
+
+    .line 25
+    move-object/from16 v13, p3
+
+    .line 27
+    invoke-direct/range {v1 .. v14}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 30
+    return-object v1
+.end method
+
+.method public static forLegacyRequiredField(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/reflect/Field;IZLcom/google/protobuf/s1$e;)Lcom/google/protobuf/z0;
+    .registers 21
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "fieldType",
+            "presenceField",
+            "presenceMask",
+            "enforceUtf8",
+            "enumVerifier"
+        }
+    .end annotation
+
+    .line 1
+    move-object/from16 v5, p3
+
+    .line 3
+    invoke-static {p1}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 6
+    const-string v0, "field"
+
+    .line 8
+    invoke-static {p0, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 11
+    const-string v0, "fieldType"
+
+    .line 13
+    move-object/from16 v3, p2
+
+    .line 15
+    invoke-static {v3, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 18
+    const-string v0, "presenceField"
+
+    .line 20
+    invoke-static {v5, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 23
+    if-eqz v5, :cond_1e
+
+    .line 25
+    invoke-static/range {p4 .. p4}, Lcom/google/protobuf/z0;->isExactlyOneBitSet(I)Z
+
+    .line 28
+    move-result v0
+
+    .line 29
+    if-eqz v0, :cond_21
+
+    .line 31
+    :cond_1e
+    move/from16 v6, p4
+
+    .line 33
+    goto :goto_3a
+
+    .line 34
+    :cond_21
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    .line 36
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    .line 38
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 41
+    const-string v0, "presenceMask must have exactly one bit set: "
+
+    .line 43
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 46
+    move/from16 v6, p4
+
+    .line 48
+    invoke-virtual {p1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 51
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 54
+    move-result-object p1
+
+    .line 55
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    .line 58
+    throw p0
+
+    .line 59
+    :goto_3a
+    new-instance v0, Lcom/google/protobuf/z0;
+
+    .line 61
+    const/4 v11, 0x0
+
+    .line 62
+    const/4 v13, 0x0
+
+    .line 63
+    const/4 v4, 0x0
+
+    .line 64
+    const/4 v7, 0x1
+
+    .line 65
+    const/4 v9, 0x0
+
+    .line 66
+    const/4 v10, 0x0
+
+    .line 67
+    move-object v1, p0
+
+    .line 68
+    move v2, p1
+
+    .line 69
+    move/from16 v8, p5
+
+    .line 71
+    move-object/from16 v12, p6
+
+    .line 73
+    invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 76
+    return-object v0
+.end method
+
+.method public static forMapField(Ljava/lang/reflect/Field;ILjava/lang/Object;Lcom/google/protobuf/s1$e;)Lcom/google/protobuf/z0;
+    .registers 19
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "mapDefaultEntry",
+            "enumVerifier"
+        }
+    .end annotation
+
+    .line 1
+    const-string v0, "mapDefaultEntry"
+
+    .line 3
+    move-object/from16 v12, p2
+
+    .line 5
+    invoke-static {v12, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 8
+    invoke-static/range {p1 .. p1}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 11
+    const-string v0, "field"
+
+    .line 13
+    invoke-static {p0, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 16
+    new-instance v1, Lcom/google/protobuf/z0;
+
+    .line 18
+    sget-object v4, Lcom/google/protobuf/f1;->MAP:Lcom/google/protobuf/f1;
+
+    .line 20
+    const/4 v11, 0x0
+
+    .line 21
+    const/4 v14, 0x0
+
+    .line 22
+    const/4 v5, 0x0
+
+    .line 23
+    const/4 v6, 0x0
+
+    .line 24
+    const/4 v7, 0x0
+
+    .line 25
+    const/4 v8, 0x0
+
+    .line 26
+    const/4 v9, 0x1
+
+    .line 27
+    const/4 v10, 0x0
+
+    .line 28
+    move-object v2, p0
+
+    .line 29
+    move/from16 v3, p1
+
+    .line 31
+    move-object/from16 v13, p3
+
+    .line 33
+    invoke-direct/range {v1 .. v14}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 36
+    return-object v1
+.end method
+
+.method public static forOneofMemberField(ILcom/google/protobuf/f1;Lcom/google/protobuf/f3;Ljava/lang/Class;ZLcom/google/protobuf/s1$e;)Lcom/google/protobuf/z0;
+    .registers 20
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "fieldNumber",
+            "fieldType",
+            "oneof",
+            "oneofStoredType",
+            "enforceUtf8",
+            "enumVerifier"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Lcom/google/protobuf/f1;",
+            "Lcom/google/protobuf/f3;",
+            "Ljava/lang/Class<",
+            "*>;Z",
+            "Lcom/google/protobuf/s1$e;",
+            ")",
+            "Lcom/google/protobuf/z0;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-static {p0}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 4
+    const-string v0, "fieldType"
+
+    .line 6
+    invoke-static {p1, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 9
+    const-string v0, "oneof"
+
+    .line 11
+    move-object/from16 v9, p2
+
+    .line 13
+    invoke-static {v9, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 16
+    const-string v0, "oneofStoredType"
+
+    .line 18
+    move-object/from16 v10, p3
+
+    .line 20
+    invoke-static {v10, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 23
+    invoke-virtual {p1}, Lcom/google/protobuf/f1;->isScalar()Z
+
+    .line 26
+    move-result v0
+
+    .line 27
+    if-eqz v0, :cond_2f
+
+    .line 29
+    new-instance v0, Lcom/google/protobuf/z0;
+
+    .line 31
+    const/4 v11, 0x0
+
+    .line 32
+    const/4 v13, 0x0
+
+    .line 33
+    const/4 v1, 0x0
+
+    .line 34
+    const/4 v4, 0x0
+
+    .line 35
+    const/4 v5, 0x0
+
+    .line 36
+    const/4 v6, 0x0
+
+    .line 37
+    const/4 v7, 0x0
+
+    .line 38
+    move v2, p0
+
+    .line 39
+    move-object v3, p1
+
+    .line 40
+    move/from16 v8, p4
+
+    .line 42
+    move-object/from16 v12, p5
+
+    .line 44
+    invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 47
+    return-object v0
+
+    .line 48
+    :cond_2f
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    .line 50
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    .line 52
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 55
+    const-string v2, "Oneof is only supported for scalar fields. Field "
+
+    .line 57
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 60
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 63
+    const-string v2, " is of type "
+
+    .line 65
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 68
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 71
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 74
+    move-result-object v1
+
+    .line 75
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    .line 78
+    throw v0
+.end method
+
+.method public static forPackedField(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/reflect/Field;)Lcom/google/protobuf/z0;
+    .registers 18
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "fieldType",
+            "cachedSizeField"
+        }
+    .end annotation
+
+    .line 1
+    move-object/from16 v3, p2
+
+    .line 3
+    invoke-static {p1}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 6
+    const-string v0, "field"
+
+    .line 8
+    invoke-static {p0, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 11
+    const-string v0, "fieldType"
+
+    .line 13
+    invoke-static {v3, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 16
+    sget-object v0, Lcom/google/protobuf/f1;->MESSAGE_LIST:Lcom/google/protobuf/f1;
+
+    .line 18
+    if-eq v3, v0, :cond_2a
+
+    .line 20
+    sget-object v0, Lcom/google/protobuf/f1;->GROUP_LIST:Lcom/google/protobuf/f1;
+
+    .line 22
+    if-eq v3, v0, :cond_2a
+
+    .line 24
+    new-instance v0, Lcom/google/protobuf/z0;
+
+    .line 26
+    const/4 v11, 0x0
+
+    .line 27
+    const/4 v12, 0x0
+
+    .line 28
+    const/4 v4, 0x0
+
+    .line 29
+    const/4 v5, 0x0
+
+    .line 30
+    const/4 v6, 0x0
+
+    .line 31
+    const/4 v7, 0x0
+
+    .line 32
+    const/4 v8, 0x0
+
+    .line 33
+    const/4 v9, 0x0
+
+    .line 34
+    const/4 v10, 0x0
+
+    .line 35
+    move-object v1, p0
+
+    .line 36
+    move v2, p1
+
+    .line 37
+    move-object/from16 v13, p3
+
+    .line 39
+    invoke-direct/range {v0 .. v13}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 42
+    return-object v0
+
+    .line 43
+    :cond_2a
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    .line 45
+    const-string p1, "Shouldn\'t be called for repeated message fields."
+
+    .line 47
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    .line 50
+    throw p0
+.end method
+
+.method public static forPackedFieldWithEnumVerifier(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)Lcom/google/protobuf/z0;
+    .registers 20
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "fieldType",
+            "enumVerifier",
+            "cachedSizeField"
+        }
+    .end annotation
+
+    .line 1
+    invoke-static/range {p1 .. p1}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 4
+    const-string v0, "field"
+
+    .line 6
+    invoke-static {p0, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 9
+    new-instance v1, Lcom/google/protobuf/z0;
+
+    .line 11
+    const/4 v11, 0x0
+
+    .line 12
+    const/4 v12, 0x0
+
+    .line 13
+    const/4 v5, 0x0
+
+    .line 14
+    const/4 v6, 0x0
+
+    .line 15
+    const/4 v7, 0x0
+
+    .line 16
+    const/4 v8, 0x0
+
+    .line 17
+    const/4 v9, 0x0
+
+    .line 18
+    const/4 v10, 0x0
+
+    .line 19
+    move-object v2, p0
+
+    .line 20
+    move/from16 v3, p1
+
+    .line 22
+    move-object/from16 v4, p2
+
+    .line 24
+    move-object/from16 v13, p3
+
+    .line 26
+    move-object/from16 v14, p4
+
+    .line 28
+    invoke-direct/range {v1 .. v14}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 31
+    return-object v1
+.end method
+
+.method public static forRepeatedMessageField(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;)Lcom/google/protobuf/z0;
+    .registers 19
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "field",
+            "fieldNumber",
+            "fieldType",
+            "messageClass"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/reflect/Field;",
+            "I",
+            "Lcom/google/protobuf/f1;",
+            "Ljava/lang/Class<",
+            "*>;)",
+            "Lcom/google/protobuf/z0;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-static/range {p1 .. p1}, Lcom/google/protobuf/z0;->checkFieldNumber(I)V
+
+    .line 4
+    const-string v0, "field"
+
+    .line 6
+    invoke-static {p0, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 9
+    const-string v0, "fieldType"
+
+    .line 11
+    move-object/from16 v4, p2
+
+    .line 13
+    invoke-static {v4, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 16
+    const-string v0, "messageClass"
+
+    .line 18
+    move-object/from16 v5, p3
+
+    .line 20
+    invoke-static {v5, v0}, Lcom/google/protobuf/s1;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 23
+    new-instance v1, Lcom/google/protobuf/z0;
+
+    .line 25
+    const/4 v13, 0x0
+
+    .line 26
+    const/4 v14, 0x0
+
+    .line 27
+    const/4 v6, 0x0
+
+    .line 28
+    const/4 v7, 0x0
+
+    .line 29
+    const/4 v8, 0x0
+
+    .line 30
+    const/4 v9, 0x0
+
+    .line 31
+    const/4 v10, 0x0
+
+    .line 32
+    const/4 v11, 0x0
+
+    .line 33
+    const/4 v12, 0x0
+
+    .line 34
+    move-object v2, p0
+
+    .line 35
+    move/from16 v3, p1
+
+    .line 37
+    invoke-direct/range {v1 .. v14}, Lcom/google/protobuf/z0;-><init>(Ljava/lang/reflect/Field;ILcom/google/protobuf/f1;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/protobuf/f3;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/protobuf/s1$e;Ljava/lang/reflect/Field;)V
+
+    .line 40
+    return-object v1
+.end method
+
+.method private static isExactlyOneBitSet(I)Z
+    .registers 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "value"
+        }
+    .end annotation
+
+    .line 1
+    if-eqz p0, :cond_9
+
+    .line 3
+    add-int/lit8 v0, p0, -0x1
+
+    .line 5
+    and-int/2addr p0, v0
+
+    .line 6
+    if-nez p0, :cond_9
+
+    .line 8
+    const/4 p0, 0x1
+
+    .line 9
+    return p0
+
+    .line 10
+    :cond_9
+    const/4 p0, 0x0
+
+    .line 11
+    return p0
+.end method
+
+.method public static newBuilder()Lcom/google/protobuf/z0$b;
+    .registers 2
+
+    .line 1
+    new-instance v0, Lcom/google/protobuf/z0$b;
+
+    .line 3
+    const/4 v1, 0x0
+
+    .line 4
+    invoke-direct {v0, v1}, Lcom/google/protobuf/z0$b;-><init>(Lcom/google/protobuf/z0$a;)V
+
+    .line 7
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public compareTo(Lcom/google/protobuf/z0;)I
+    .registers 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "o"
+        }
+    .end annotation
+
+    .line 2
+    iget v0, p0, Lcom/google/protobuf/z0;->fieldNumber:I
+
+    iget p1, p1, Lcom/google/protobuf/z0;->fieldNumber:I
+
+    sub-int/2addr v0, p1
+
+    return v0
+.end method
+
+.method public bridge synthetic compareTo(Ljava/lang/Object;)I
+    .registers 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "o"
+        }
+    .end annotation
+
+    .line 1
+    check-cast p1, Lcom/google/protobuf/z0;
+
+    invoke-virtual {p0, p1}, Lcom/google/protobuf/z0;->compareTo(Lcom/google/protobuf/z0;)I
+
+    move-result p1
+
+    return p1
+.end method
+
+.method public getCachedSizeField()Ljava/lang/reflect/Field;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->cachedSizeField:Ljava/lang/reflect/Field;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public getEnumVerifier()Lcom/google/protobuf/s1$e;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->enumVerifier:Lcom/google/protobuf/s1$e;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public getField()Ljava/lang/reflect/Field;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->field:Ljava/lang/reflect/Field;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public getFieldNumber()I
+    .registers 2
+
+    .line 1
+    iget v0, p0, Lcom/google/protobuf/z0;->fieldNumber:I
+
+    .line 3
+    return v0
+.end method
+
+.method public getListElementType()Ljava/lang/Class;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/lang/Class<",
+            "*>;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->messageClass:Ljava/lang/Class;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public getMapDefaultEntry()Ljava/lang/Object;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->mapDefaultEntry:Ljava/lang/Object;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public getMessageFieldClass()Ljava/lang/Class;
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/lang/Class<",
+            "*>;"
+        }
+    .end annotation
+
+    .line 1
+    sget-object v0, Lcom/google/protobuf/z0$a;->$SwitchMap$com$google$protobuf$FieldType:[I
+
+    .line 3
+    iget-object v1, p0, Lcom/google/protobuf/z0;->type:Lcom/google/protobuf/f1;
+
+    .line 5
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+
+    .line 8
+    move-result v1
+
+    .line 9
+    aget v0, v0, v1
+
+    .line 11
+    const/4 v1, 0x1
+
+    .line 12
+    if-eq v0, v1, :cond_1b
+
+    .line 14
+    const/4 v1, 0x2
+
+    .line 15
+    if-eq v0, v1, :cond_1b
+
+    .line 17
+    const/4 v1, 0x3
+
+    .line 18
+    if-eq v0, v1, :cond_18
+
+    .line 20
+    const/4 v1, 0x4
+
+    .line 21
+    if-eq v0, v1, :cond_18
+
+    .line 23
+    const/4 v0, 0x0
+
+    .line 24
+    return-object v0
+
+    .line 25
+    :cond_18
+    iget-object v0, p0, Lcom/google/protobuf/z0;->messageClass:Ljava/lang/Class;
+
+    .line 27
+    return-object v0
+
+    .line 28
+    :cond_1b
+    iget-object v0, p0, Lcom/google/protobuf/z0;->field:Ljava/lang/reflect/Field;
+
+    .line 30
+    if-eqz v0, :cond_24
+
+    .line 32
+    invoke-virtual {v0}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+
+    .line 35
+    move-result-object v0
+
+    .line 36
+    return-object v0
+
+    .line 37
+    :cond_24
+    iget-object v0, p0, Lcom/google/protobuf/z0;->oneofStoredType:Ljava/lang/Class;
+
+    .line 39
+    return-object v0
+.end method
+
+.method public getOneof()Lcom/google/protobuf/f3;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->oneof:Lcom/google/protobuf/f3;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public getOneofStoredType()Ljava/lang/Class;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/lang/Class<",
+            "*>;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->oneofStoredType:Ljava/lang/Class;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public getPresenceField()Ljava/lang/reflect/Field;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->presenceField:Ljava/lang/reflect/Field;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public getPresenceMask()I
+    .registers 2
+
+    .line 1
+    iget v0, p0, Lcom/google/protobuf/z0;->presenceMask:I
+
+    .line 3
+    return v0
+.end method
+
+.method public getType()Lcom/google/protobuf/f1;
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/z0;->type:Lcom/google/protobuf/f1;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public isEnforceUtf8()Z
+    .registers 2
+
+    .line 1
+    iget-boolean v0, p0, Lcom/google/protobuf/z0;->enforceUtf8:Z
+
+    .line 3
+    return v0
+.end method
+
+.method public isRequired()Z
+    .registers 2
+
+    .line 1
+    iget-boolean v0, p0, Lcom/google/protobuf/z0;->required:Z
+
+    .line 3
+    return v0
+.end method

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<type id="0x05">
+    <entry id="0x7f050000" name="abc_action_bar_embed_tabs" />
+    <entry id="0x7f050001" name="abc_config_actionMenuItemAllCaps" />
+    <entry id="0x7f050002" name="config_materialPreferenceIconSpaceReserved" />
+    <entry id="0x7f050003" name="enable_system_alarm_service_default" />
+    <entry id="0x7f050004" name="enable_system_foreground_service_default" />
+    <entry id="0x7f050005" name="enable_system_job_service_default" />
+    <entry id="0x7f050006" name="workmanager_test_configuration" />
+</type>

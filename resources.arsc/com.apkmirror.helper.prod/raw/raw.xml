@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <path name="com_android_billingclient_heterodyne_info">res/raw/com_android_billingclient_heterodyne_info</path>
+    <path name="com_android_billingclient_registration_info">res/raw/com_android_billingclient_registration_info.binarypb</path>
+    <path name="firebase_common_keep">res/raw/firebase_common_keep.xml</path>
+    <path name="firebase_crashlytics_keep">res/raw/firebase_crashlytics_keep.xml</path>
+    <path name="omid_session_client_v1_5_7">res/raw/omid_session_client_v1_5_7.js</path>
+    <path name="omsdk_v1_5_7">res/raw/omsdk_v1_5_7.js</path>
+</resources>

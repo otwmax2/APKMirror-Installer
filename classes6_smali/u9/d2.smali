@@ -1,0 +1,65 @@
+.class public final Lu9/d2;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# direct methods
+.method public static synthetic a()V
+    .registers 0
+    .annotation build Ls9/l1;
+        version = "1.1"
+    .end annotation
+
+    .line 1
+    return-void
+.end method
+
+.method public static synthetic b()V
+    .registers 0
+    .annotation build Ls9/l1;
+        version = "1.1"
+    .end annotation
+
+    .line 1
+    return-void
+.end method
+
+.method public static synthetic c()V
+    .registers 0
+    .annotation build Ls9/l1;
+        version = "1.1"
+    .end annotation
+
+    .line 1
+    return-void
+.end method
+
+.method public static synthetic d()V
+    .registers 0
+    .annotation build Ls9/l1;
+        version = "1.1"
+    .end annotation
+
+    .line 1
+    return-void
+.end method
+
+.method public static synthetic e()V
+    .registers 0
+    .annotation build Ls9/l1;
+        version = "1.1"
+    .end annotation
+
+    .line 1
+    return-void
+.end method
+
+.method public static synthetic f()V
+    .registers 0
+    .annotation build Ls9/l1;
+        version = "1.1"
+    .end annotation
+
+    .line 1
+    return-void
+.end method

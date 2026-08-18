@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <path name="menu_explorer">res/menu/menu_explorer.xml</path>
+    <path name="menu_start">res/menu/menu_start.xml</path>
+</resources>

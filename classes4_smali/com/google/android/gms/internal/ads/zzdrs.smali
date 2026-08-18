@@ -1,0 +1,46 @@
+.class final synthetic Lcom/google/android/gms/internal/ads/zzdrs;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Lcom/google/android/gms/internal/ads/zzgqt;
+
+
+# instance fields
+.field private final synthetic zza:Ljava/lang/String;
+
+
+# direct methods
+.method public synthetic constructor <init>(Ljava/lang/String;)V
+    .registers 2
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    iput-object p1, p0, Lcom/google/android/gms/internal/ads/zzdrs;->zza:Ljava/lang/String;
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 4
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/ads/zzdrs;->zza:Ljava/lang/String;
+
+    .line 3
+    check-cast p1, Lcom/google/android/gms/internal/ads/zzbkd;
+
+    .line 5
+    new-instance v1, Lcom/google/android/gms/internal/ads/zzdrr;
+
+    .line 7
+    invoke-direct {v1, v0, p1}, Lcom/google/android/gms/internal/ads/zzdrr;-><init>(Ljava/lang/String;Lcom/google/android/gms/internal/ads/zzbkd;)V
+
+    .line 10
+    return-object v1
+.end method

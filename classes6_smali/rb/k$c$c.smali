@@ -1,0 +1,252 @@
+.class public final Lrb/k$c$c;
+.super Lga/q;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Lsa/p;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lrb/k$c;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lga/q;",
+        "Lsa/p<",
+        "Lob/j0<",
+        "-",
+        "Ljava/lang/Object;",
+        ">;",
+        "Lda/f<",
+        "-",
+        "Ls9/u2;",
+        ">;",
+        "Ljava/lang/Object;",
+        ">;"
+    }
+.end annotation
+
+.annotation runtime Lga/f;
+    c = "kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$second$1"
+    f = "Combine.kt"
+    i = {}
+    l = {
+        0x56
+    }
+    m = "invokeSuspend"
+    n = {}
+    s = {}
+.end annotation
+
+
+# instance fields
+.field public p:I
+
+.field public synthetic q:Ljava/lang/Object;
+
+.field public final synthetic r:Lqb/i;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lqb/i<",
+            "TT2;>;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lqb/i;Lda/f;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lqb/i<",
+            "+TT2;>;",
+            "Lda/f<",
+            "-",
+            "Lrb/k$c$c;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lrb/k$c$c;->r:Lqb/i;
+
+    .line 3
+    const/4 p1, 0x2
+
+    .line 4
+    invoke-direct {p0, p1, p2}, Lga/q;-><init>(ILda/f;)V
+
+    .line 7
+    return-void
+.end method
+
+
+# virtual methods
+.method public final create(Ljava/lang/Object;Lda/f;)Lda/f;
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Object;",
+            "Lda/f<",
+            "*>;)",
+            "Lda/f<",
+            "Ls9/u2;",
+            ">;"
+        }
+    .end annotation
+
+    .line 1
+    new-instance v0, Lrb/k$c$c;
+
+    .line 3
+    iget-object v1, p0, Lrb/k$c$c;->r:Lqb/i;
+
+    .line 5
+    invoke-direct {v0, v1, p2}, Lrb/k$c$c;-><init>(Lqb/i;Lda/f;)V
+
+    .line 8
+    iput-object p1, v0, Lrb/k$c$c;->q:Ljava/lang/Object;
+
+    .line 10
+    return-object v0
+.end method
+
+.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 3
+
+    .line 1
+    check-cast p1, Lob/j0;
+
+    check-cast p2, Lda/f;
+
+    invoke-virtual {p0, p1, p2}, Lrb/k$c$c;->invoke(Lob/j0;Lda/f;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final invoke(Lob/j0;Lda/f;)Ljava/lang/Object;
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lob/j0<",
+            "Ljava/lang/Object;",
+            ">;",
+            "Lda/f<",
+            "-",
+            "Ls9/u2;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    .line 2
+    invoke-virtual {p0, p1, p2}, Lrb/k$c$c;->create(Ljava/lang/Object;Lda/f;)Lda/f;
+
+    move-result-object p1
+
+    check-cast p1, Lrb/k$c$c;
+
+    sget-object p2, Ls9/u2;->a:Ls9/u2;
+
+    invoke-virtual {p1, p2}, Lrb/k$c$c;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 6
+
+    .line 1
+    invoke-static {}, Lfa/d;->l()Ljava/lang/Object;
+
+    .line 4
+    move-result-object v0
+
+    .line 5
+    iget v1, p0, Lrb/k$c$c;->p:I
+
+    .line 7
+    const/4 v2, 0x1
+
+    .line 8
+    if-eqz v1, :cond_17
+
+    .line 10
+    if-ne v1, v2, :cond_f
+
+    .line 12
+    invoke-static {p1}, Ls9/j1;->n(Ljava/lang/Object;)V
+
+    .line 15
+    goto :goto_2e
+
+    .line 16
+    :cond_f
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    .line 18
+    const-string v0, "call to \'resume\' before \'invoke\' with coroutine"
+
+    .line 20
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    .line 23
+    throw p1
+
+    .line 24
+    :cond_17
+    invoke-static {p1}, Ls9/j1;->n(Ljava/lang/Object;)V
+
+    .line 27
+    iget-object p1, p0, Lrb/k$c$c;->q:Ljava/lang/Object;
+
+    .line 29
+    check-cast p1, Lob/j0;
+
+    .line 31
+    iget-object v1, p0, Lrb/k$c$c;->r:Lqb/i;
+
+    .line 33
+    new-instance v3, Lrb/k$c$c$a;
+
+    .line 35
+    invoke-direct {v3, p1}, Lrb/k$c$c$a;-><init>(Lob/j0;)V
+
+    .line 38
+    iput v2, p0, Lrb/k$c$c;->p:I
+
+    .line 40
+    invoke-interface {v1, v3, p0}, Lqb/i;->collect(Lqb/j;Lda/f;)Ljava/lang/Object;
+
+    .line 43
+    move-result-object p1
+
+    .line 44
+    if-ne p1, v0, :cond_2e
+
+    .line 46
+    return-object v0
+
+    .line 47
+    :cond_2e
+    :goto_2e
+    sget-object p1, Ls9/u2;->a:Ls9/u2;
+
+    .line 49
+    return-object p1
+.end method

@@ -1,0 +1,435 @@
+.class public final Lb7/m0;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# annotations
+.annotation runtime Lr5/a;
+.end annotation
+
+
+# instance fields
+.field public final a:Lb7/k;
+    .annotation build Lke/l;
+    .end annotation
+.end field
+
+.field public final b:Lb7/t0;
+    .annotation build Lke/l;
+    .end annotation
+.end field
+
+.field public final c:Lb7/b;
+    .annotation build Lke/l;
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lb7/k;Lb7/t0;Lb7/b;)V
+    .registers 5
+    .param p1  # Lb7/k;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p2  # Lb7/t0;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p3  # Lb7/b;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+
+    .line 1
+    const-string v0, "eventType"
+
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/m0;->p(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    const-string v0, "sessionData"
+
+    .line 8
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/m0;->p(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 11
+    const-string v0, "applicationInfo"
+
+    .line 13
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/m0;->p(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 16
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 19
+    iput-object p1, p0, Lb7/m0;->a:Lb7/k;
+
+    .line 21
+    iput-object p2, p0, Lb7/m0;->b:Lb7/t0;
+
+    .line 23
+    iput-object p3, p0, Lb7/m0;->c:Lb7/b;
+
+    .line 25
+    return-void
+.end method
+
+.method public static synthetic e(Lb7/m0;Lb7/k;Lb7/t0;Lb7/b;ILjava/lang/Object;)Lb7/m0;
+    .registers 6
+
+    .line 1
+    and-int/lit8 p5, p4, 0x1
+
+    .line 3
+    if-eqz p5, :cond_6
+
+    .line 5
+    iget-object p1, p0, Lb7/m0;->a:Lb7/k;
+
+    .line 7
+    :cond_6
+    and-int/lit8 p5, p4, 0x2
+
+    .line 9
+    if-eqz p5, :cond_c
+
+    .line 11
+    iget-object p2, p0, Lb7/m0;->b:Lb7/t0;
+
+    .line 13
+    :cond_c
+    and-int/lit8 p4, p4, 0x4
+
+    .line 15
+    if-eqz p4, :cond_12
+
+    .line 17
+    iget-object p3, p0, Lb7/m0;->c:Lb7/b;
+
+    .line 19
+    :cond_12
+    invoke-virtual {p0, p1, p2, p3}, Lb7/m0;->d(Lb7/k;Lb7/t0;Lb7/b;)Lb7/m0;
+
+    .line 22
+    move-result-object p0
+
+    .line 23
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public final a()Lb7/k;
+    .registers 2
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lb7/m0;->a:Lb7/k;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public final b()Lb7/t0;
+    .registers 2
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lb7/m0;->b:Lb7/t0;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public final c()Lb7/b;
+    .registers 2
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lb7/m0;->c:Lb7/b;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public final d(Lb7/k;Lb7/t0;Lb7/b;)Lb7/m0;
+    .registers 5
+    .param p1  # Lb7/k;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p2  # Lb7/t0;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p3  # Lb7/b;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    const-string v0, "eventType"
+
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/m0;->p(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    const-string v0, "sessionData"
+
+    .line 8
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/m0;->p(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 11
+    const-string v0, "applicationInfo"
+
+    .line 13
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/m0;->p(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 16
+    new-instance v0, Lb7/m0;
+
+    .line 18
+    invoke-direct {v0, p1, p2, p3}, Lb7/m0;-><init>(Lb7/k;Lb7/t0;Lb7/b;)V
+
+    .line 21
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .registers 6
+    .param p1  # Ljava/lang/Object;
+        .annotation build Lke/m;
+        .end annotation
+    .end param
+
+    .line 1
+    const/4 v0, 0x1
+
+    .line 2
+    if-ne p0, p1, :cond_4
+
+    .line 4
+    return v0
+
+    .line 5
+    :cond_4
+    instance-of v1, p1, Lb7/m0;
+
+    .line 7
+    const/4 v2, 0x0
+
+    .line 8
+    if-nez v1, :cond_a
+
+    .line 10
+    return v2
+
+    .line 11
+    :cond_a
+    check-cast p1, Lb7/m0;
+
+    .line 13
+    iget-object v1, p0, Lb7/m0;->a:Lb7/k;
+
+    .line 15
+    iget-object v3, p1, Lb7/m0;->a:Lb7/k;
+
+    .line 17
+    if-eq v1, v3, :cond_13
+
+    .line 19
+    return v2
+
+    .line 20
+    :cond_13
+    iget-object v1, p0, Lb7/m0;->b:Lb7/t0;
+
+    .line 22
+    iget-object v3, p1, Lb7/m0;->b:Lb7/t0;
+
+    .line 24
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/m0;->g(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    .line 27
+    move-result v1
+
+    .line 28
+    if-nez v1, :cond_1e
+
+    .line 30
+    return v2
+
+    .line 31
+    :cond_1e
+    iget-object v1, p0, Lb7/m0;->c:Lb7/b;
+
+    .line 33
+    iget-object p1, p1, Lb7/m0;->c:Lb7/b;
+
+    .line 35
+    invoke-static {v1, p1}, Lkotlin/jvm/internal/m0;->g(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    .line 38
+    move-result p1
+
+    .line 39
+    if-nez p1, :cond_29
+
+    .line 41
+    return v2
+
+    .line 42
+    :cond_29
+    return v0
+.end method
+
+.method public final f()Lb7/b;
+    .registers 2
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lb7/m0;->c:Lb7/b;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public final g()Lb7/k;
+    .registers 2
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lb7/m0;->a:Lb7/k;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public final h()Lb7/t0;
+    .registers 2
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lb7/m0;->b:Lb7/t0;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .registers 3
+
+    .line 1
+    iget-object v0, p0, Lb7/m0;->a:Lb7/k;
+
+    .line 3
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+
+    .line 6
+    move-result v0
+
+    .line 7
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 9
+    iget-object v1, p0, Lb7/m0;->b:Lb7/t0;
+
+    .line 11
+    invoke-virtual {v1}, Lb7/t0;->hashCode()I
+
+    .line 14
+    move-result v1
+
+    .line 15
+    add-int/2addr v0, v1
+
+    .line 16
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 18
+    iget-object v1, p0, Lb7/m0;->c:Lb7/b;
+
+    .line 20
+    invoke-virtual {v1}, Lb7/b;->hashCode()I
+
+    .line 23
+    move-result v1
+
+    .line 24
+    add-int/2addr v0, v1
+
+    .line 25
+    return v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .registers 3
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 3
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 6
+    const-string v1, "SessionEvent(eventType="
+
+    .line 8
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 11
+    iget-object v1, p0, Lb7/m0;->a:Lb7/k;
+
+    .line 13
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 16
+    const-string v1, ", sessionData="
+
+    .line 18
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 21
+    iget-object v1, p0, Lb7/m0;->b:Lb7/t0;
+
+    .line 23
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 26
+    const-string v1, ", applicationInfo="
+
+    .line 28
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 31
+    iget-object v1, p0, Lb7/m0;->c:Lb7/b;
+
+    .line 33
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 36
+    const/16 v1, 0x29
+
+    .line 38
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 41
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 44
+    move-result-object v0
+
+    .line 45
+    return-object v0
+.end method

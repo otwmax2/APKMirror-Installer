@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <color name="colorAccent">@color/colorGrayLight</color>
+    <color name="colorBackground">#1d1d1d</color>
+    <color name="colorBorder">#696969</color>
+    <color name="colorFocused">#505050</color>
+    <color name="colorGrayLight">#8a8a8a</color>
+    <color name="colorPressed">#4e4e4e</color>
+    <color name="colorSeparator">#3c3c3c</color>
+    <color name="colorText">#f5f5f5</color>
+    <color name="colorTextDisabled">#bef5f5f5</color>
+    <color name="colorTextLight">#dfdfdf</color>
+    <color name="colorTextLightDisabled">#80dfdfdf</color>
+</resources>

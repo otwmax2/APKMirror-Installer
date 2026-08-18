@@ -1,0 +1,184 @@
+.class public final Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;
+.super Landroidx/compose/foundation/gestures/DragDetectionState;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# annotations
+.annotation build Landroidx/compose/runtime/internal/StabilityInferred;
+    parameters = 0x0
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/compose/foundation/gestures/DragDetectionState;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "AwaitTouchSlop"
+.end annotation
+
+
+# static fields
+.field public static final $stable:I = 0x8
+
+
+# instance fields
+.field private initialDown:Landroidx/compose/ui/input/pointer/PointerInputChange;
+    .annotation build Lke/m;
+    .end annotation
+.end field
+
+.field private pointerId:J
+
+.field private verifyConsumptionInFinalPass:Z
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 0
+
+    .line 1
+    return-void
+.end method
+
+.method private constructor <init>(Landroidx/compose/ui/input/pointer/PointerInputChange;JZ)V
+    .registers 6
+
+    const/4 v0, 0x0
+
+    .line 2
+    invoke-direct {p0, v0}, Landroidx/compose/foundation/gestures/DragDetectionState;-><init>(Lkotlin/jvm/internal/x;)V
+
+    .line 3
+    iput-object p1, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->initialDown:Landroidx/compose/ui/input/pointer/PointerInputChange;
+
+    .line 4
+    iput-wide p2, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->pointerId:J
+
+    .line 5
+    iput-boolean p4, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->verifyConsumptionInFinalPass:Z
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Landroidx/compose/ui/input/pointer/PointerInputChange;JZILkotlin/jvm/internal/x;)V
+    .registers 13
+
+    and-int/lit8 p6, p5, 0x1
+
+    if-eqz p6, :cond_5
+
+    const/4 p1, 0x0
+
+    :cond_5
+    move-object v1, p1
+
+    and-int/lit8 p1, p5, 0x2
+
+    if-eqz p1, :cond_13
+
+    const-wide p1, 0x7fffffffffffffffL
+
+    .line 6
+    invoke-static {p1, p2}, Landroidx/compose/ui/input/pointer/PointerId;->constructor-impl(J)J
+
+    move-result-wide p2
+
+    :cond_13
+    move-wide v2, p2
+
+    and-int/lit8 p1, p5, 0x4
+
+    if-eqz p1, :cond_19
+
+    const/4 p4, 0x0
+
+    :cond_19
+    move v4, p4
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    .line 7
+    invoke-direct/range {v0 .. v5}, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;-><init>(Landroidx/compose/ui/input/pointer/PointerInputChange;JZLkotlin/jvm/internal/x;)V
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Landroidx/compose/ui/input/pointer/PointerInputChange;JZLkotlin/jvm/internal/x;)V
+    .registers 6
+
+    .line 1
+    invoke-direct {p0, p1, p2, p3, p4}, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;-><init>(Landroidx/compose/ui/input/pointer/PointerInputChange;JZ)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final getInitialDown()Landroidx/compose/ui/input/pointer/PointerInputChange;
+    .registers 2
+    .annotation build Lke/m;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->initialDown:Landroidx/compose/ui/input/pointer/PointerInputChange;
+
+    .line 3
+    return-object v0
+.end method
+
+.method public final getPointerId-J3iCeTQ()J
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->pointerId:J
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final getVerifyConsumptionInFinalPass()Z
+    .registers 2
+
+    .line 1
+    iget-boolean v0, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->verifyConsumptionInFinalPass:Z
+
+    .line 3
+    return v0
+.end method
+
+.method public final setInitialDown(Landroidx/compose/ui/input/pointer/PointerInputChange;)V
+    .registers 2
+    .param p1  # Landroidx/compose/ui/input/pointer/PointerInputChange;
+        .annotation build Lke/m;
+        .end annotation
+    .end param
+
+    .line 1
+    iput-object p1, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->initialDown:Landroidx/compose/ui/input/pointer/PointerInputChange;
+
+    .line 3
+    return-void
+.end method
+
+.method public final setPointerId-0FcD4WY(J)V
+    .registers 3
+
+    .line 1
+    iput-wide p1, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->pointerId:J
+
+    .line 3
+    return-void
+.end method
+
+.method public final setVerifyConsumptionInFinalPass(Z)V
+    .registers 2
+
+    .line 1
+    iput-boolean p1, p0, Landroidx/compose/foundation/gestures/DragDetectionState$AwaitTouchSlop;->verifyConsumptionInFinalPass:Z
+
+    .line 3
+    return-void
+.end method

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<type id="0x02">
+    <entry id="0x7f020000" name="animator_toolbar" />
+    <entry id="0x7f020001" name="fragment_close_enter" />
+    <entry id="0x7f020002" name="fragment_close_exit" />
+    <entry id="0x7f020003" name="fragment_fade_enter" />
+    <entry id="0x7f020004" name="fragment_fade_exit" />
+    <entry id="0x7f020005" name="fragment_open_enter" />
+    <entry id="0x7f020006" name="fragment_open_exit" />
+</type>

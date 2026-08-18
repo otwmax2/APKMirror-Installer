@@ -1,0 +1,1125 @@
+.class public final Landroidx/compose/ui/graphics/colorspace/TransferParameters;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# annotations
+.annotation build Landroidx/compose/runtime/internal/StabilityInferred;
+    parameters = 0x1
+.end annotation
+
+
+# static fields
+.field public static final $stable:I
+
+
+# instance fields
+.field private final a:D
+
+.field private final b:D
+
+.field private final c:D
+
+.field private final d:D
+
+.field private final e:D
+
+.field private final f:D
+
+.field private final gamma:D
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 0
+
+    .line 1
+    return-void
+.end method
+
+.method public constructor <init>(DDDDDDD)V
+    .registers 16
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    iput-wide p1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 3
+    iput-wide p3, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->a:D
+
+    .line 4
+    iput-wide p5, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->b:D
+
+    .line 5
+    iput-wide p7, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->c:D
+
+    .line 6
+    iput-wide p9, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->d:D
+
+    .line 7
+    iput-wide p11, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->e:D
+
+    .line 8
+    iput-wide p13, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->f:D
+
+    .line 9
+    invoke-static {p3, p4}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result v0
+
+    if-nez v0, :cond_be
+
+    .line 10
+    invoke-static {p5, p6}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result p5
+
+    if-nez p5, :cond_be
+
+    .line 11
+    invoke-static {p7, p8}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result p5
+
+    if-nez p5, :cond_be
+
+    .line 12
+    invoke-static {p9, p10}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result p5
+
+    if-nez p5, :cond_be
+
+    .line 13
+    invoke-static {p11, p12}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result p5
+
+    if-nez p5, :cond_be
+
+    .line 14
+    invoke-static {p13, p14}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result p5
+
+    if-nez p5, :cond_be
+
+    .line 15
+    invoke-static {p1, p2}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result p5
+
+    if-nez p5, :cond_be
+
+    .line 16
+    invoke-static {p1, p2}, Landroidx/compose/ui/graphics/colorspace/TransferParametersKt;->access$isSpecialG(D)Z
+
+    move-result p5
+
+    if-nez p5, :cond_bd
+
+    const-wide/16 p5, 0x0
+
+    cmpl-double p11, p9, p5
+
+    if-ltz p11, :cond_a6
+
+    const-wide/high16 p11, 0x3ff0000000000000L  # 1.0
+
+    cmpg-double p13, p9, p11
+
+    if-gtz p13, :cond_a6
+
+    cmpg-double p13, p9, p5
+
+    if-nez p13, :cond_62
+
+    cmpg-double p13, p3, p5
+
+    if-eqz p13, :cond_5a
+
+    cmpg-double p13, p1, p5
+
+    if-eqz p13, :cond_5a
+
+    goto :goto_62
+
+    .line 17
+    :cond_5a
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    .line 18
+    const-string p2, "Parameter a or g is zero, the transfer function is constant"
+
+    .line 19
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_62
+    :goto_62
+    cmpl-double p9, p9, p11
+
+    if-ltz p9, :cond_73
+
+    cmpg-double p9, p7, p5
+
+    if-eqz p9, :cond_6b
+
+    goto :goto_73
+
+    .line 20
+    :cond_6b
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    .line 21
+    const-string p2, "Parameter c is zero, the transfer function is constant"
+
+    .line 22
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_73
+    :goto_73
+    cmpg-double p9, p3, p5
+
+    if-nez p9, :cond_78
+
+    goto :goto_7c
+
+    :cond_78
+    cmpg-double p9, p1, p5
+
+    if-nez p9, :cond_89
+
+    :goto_7c
+    cmpg-double p9, p7, p5
+
+    if-eqz p9, :cond_81
+
+    goto :goto_89
+
+    .line 23
+    :cond_81
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    .line 24
+    const-string p2, "Parameter a or g is zero, and c is zero, the transfer function is constant"
+
+    .line 25
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_89
+    :goto_89
+    cmpg-double p7, p7, p5
+
+    if-ltz p7, :cond_9e
+
+    cmpg-double p3, p3, p5
+
+    if-ltz p3, :cond_96
+
+    cmpg-double p1, p1, p5
+
+    if-ltz p1, :cond_96
+
+    goto :goto_bd
+
+    .line 26
+    :cond_96
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    .line 27
+    const-string p2, "The transfer function must be positive or increasing"
+
+    .line 28
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    .line 29
+    :cond_9e
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string p2, "The transfer function must be increasing"
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    .line 30
+    :cond_a6
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    .line 31
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p3, "Parameter d must be in the range [0..1], was "
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p9, p10}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    .line 32
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_bd
+    :goto_bd
+    return-void
+
+    .line 33
+    :cond_be
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string p2, "Parameters cannot be NaN"
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method public synthetic constructor <init>(DDDDDDDILkotlin/jvm/internal/x;)V
+    .registers 35
+
+    and-int/lit8 v0, p15, 0x20
+
+    const-wide/16 v1, 0x0
+
+    if-eqz v0, :cond_8
+
+    move-wide v14, v1
+
+    goto :goto_a
+
+    :cond_8
+    move-wide/from16 v14, p11
+
+    :goto_a
+    and-int/lit8 v0, p15, 0x40
+
+    if-eqz v0, :cond_1d
+
+    move-wide/from16 v16, v1
+
+    :goto_10
+    move-object/from16 v3, p0
+
+    move-wide/from16 v4, p1
+
+    move-wide/from16 v6, p3
+
+    move-wide/from16 v8, p5
+
+    move-wide/from16 v10, p7
+
+    move-wide/from16 v12, p9
+
+    goto :goto_20
+
+    :cond_1d
+    move-wide/from16 v16, p13
+
+    goto :goto_10
+
+    .line 34
+    :goto_20
+    invoke-direct/range {v3 .. v17}, Landroidx/compose/ui/graphics/colorspace/TransferParameters;-><init>(DDDDDDD)V
+
+    return-void
+.end method
+
+.method public static synthetic copy$default(Landroidx/compose/ui/graphics/colorspace/TransferParameters;DDDDDDDILjava/lang/Object;)Landroidx/compose/ui/graphics/colorspace/TransferParameters;
+    .registers 31
+
+    .line 1
+    and-int/lit8 v0, p15, 0x1
+
+    .line 3
+    if-eqz v0, :cond_7
+
+    .line 5
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 7
+    goto :goto_8
+
+    .line 8
+    :cond_7
+    move-wide v0, p1
+
+    .line 9
+    :goto_8
+    and-int/lit8 v2, p15, 0x2
+
+    .line 11
+    if-eqz v2, :cond_f
+
+    .line 13
+    iget-wide v2, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->a:D
+
+    .line 15
+    goto :goto_11
+
+    .line 16
+    :cond_f
+    move-wide/from16 v2, p3
+
+    .line 18
+    :goto_11
+    and-int/lit8 v4, p15, 0x4
+
+    .line 20
+    if-eqz v4, :cond_18
+
+    .line 22
+    iget-wide v4, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->b:D
+
+    .line 24
+    goto :goto_1a
+
+    .line 25
+    :cond_18
+    move-wide/from16 v4, p5
+
+    .line 27
+    :goto_1a
+    and-int/lit8 v6, p15, 0x8
+
+    .line 29
+    if-eqz v6, :cond_21
+
+    .line 31
+    iget-wide v6, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->c:D
+
+    .line 33
+    goto :goto_23
+
+    .line 34
+    :cond_21
+    move-wide/from16 v6, p7
+
+    .line 36
+    :goto_23
+    and-int/lit8 v8, p15, 0x10
+
+    .line 38
+    if-eqz v8, :cond_2a
+
+    .line 40
+    iget-wide v8, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->d:D
+
+    .line 42
+    goto :goto_2c
+
+    .line 43
+    :cond_2a
+    move-wide/from16 v8, p9
+
+    .line 45
+    :goto_2c
+    and-int/lit8 v10, p15, 0x20
+
+    .line 47
+    if-eqz v10, :cond_33
+
+    .line 49
+    iget-wide v10, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->e:D
+
+    .line 51
+    goto :goto_35
+
+    .line 52
+    :cond_33
+    move-wide/from16 v10, p11
+
+    .line 54
+    :goto_35
+    and-int/lit8 v12, p15, 0x40
+
+    .line 56
+    if-eqz v12, :cond_4b
+
+    .line 58
+    iget-wide v12, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->f:D
+
+    .line 60
+    move-wide/from16 p14, v12
+
+    .line 62
+    :goto_3d
+    move-object p1, p0
+
+    .line 63
+    move-wide/from16 p2, v0
+
+    .line 65
+    move-wide/from16 p4, v2
+
+    .line 67
+    move-wide/from16 p6, v4
+
+    .line 69
+    move-wide/from16 p8, v6
+
+    .line 71
+    move-wide/from16 p10, v8
+
+    .line 73
+    move-wide/from16 p12, v10
+
+    .line 75
+    goto :goto_4e
+
+    .line 76
+    :cond_4b
+    move-wide/from16 p14, p13
+
+    .line 78
+    goto :goto_3d
+
+    .line 79
+    :goto_4e
+    invoke-virtual/range {p1 .. p15}, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->copy(DDDDDDD)Landroidx/compose/ui/graphics/colorspace/TransferParameters;
+
+    .line 82
+    move-result-object p0
+
+    .line 83
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public final component1()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final component2()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->a:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final component3()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->b:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final component4()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->c:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final component5()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->d:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final component6()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->e:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final component7()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->f:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final copy(DDDDDDD)Landroidx/compose/ui/graphics/colorspace/TransferParameters;
+    .registers 30
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    new-instance v0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;
+
+    .line 3
+    move-wide/from16 v1, p1
+
+    .line 5
+    move-wide/from16 v3, p3
+
+    .line 7
+    move-wide/from16 v5, p5
+
+    .line 9
+    move-wide/from16 v7, p7
+
+    .line 11
+    move-wide/from16 v9, p9
+
+    .line 13
+    move-wide/from16 v11, p11
+
+    .line 15
+    move-wide/from16 v13, p13
+
+    .line 17
+    invoke-direct/range {v0 .. v14}, Landroidx/compose/ui/graphics/colorspace/TransferParameters;-><init>(DDDDDDD)V
+
+    .line 20
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .registers 9
+    .param p1  # Ljava/lang/Object;
+        .annotation build Lke/m;
+        .end annotation
+    .end param
+
+    .line 1
+    const/4 v0, 0x1
+
+    .line 2
+    if-ne p0, p1, :cond_4
+
+    .line 4
+    return v0
+
+    .line 5
+    :cond_4
+    instance-of v1, p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;
+
+    .line 7
+    const/4 v2, 0x0
+
+    .line 8
+    if-nez v1, :cond_a
+
+    .line 10
+    return v2
+
+    .line 11
+    :cond_a
+    check-cast p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;
+
+    .line 13
+    iget-wide v3, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 15
+    iget-wide v5, p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 17
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Double;->compare(DD)I
+
+    .line 20
+    move-result v1
+
+    .line 21
+    if-eqz v1, :cond_17
+
+    .line 23
+    return v2
+
+    .line 24
+    :cond_17
+    iget-wide v3, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->a:D
+
+    .line 26
+    iget-wide v5, p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->a:D
+
+    .line 28
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Double;->compare(DD)I
+
+    .line 31
+    move-result v1
+
+    .line 32
+    if-eqz v1, :cond_22
+
+    .line 34
+    return v2
+
+    .line 35
+    :cond_22
+    iget-wide v3, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->b:D
+
+    .line 37
+    iget-wide v5, p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->b:D
+
+    .line 39
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Double;->compare(DD)I
+
+    .line 42
+    move-result v1
+
+    .line 43
+    if-eqz v1, :cond_2d
+
+    .line 45
+    return v2
+
+    .line 46
+    :cond_2d
+    iget-wide v3, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->c:D
+
+    .line 48
+    iget-wide v5, p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->c:D
+
+    .line 50
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Double;->compare(DD)I
+
+    .line 53
+    move-result v1
+
+    .line 54
+    if-eqz v1, :cond_38
+
+    .line 56
+    return v2
+
+    .line 57
+    :cond_38
+    iget-wide v3, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->d:D
+
+    .line 59
+    iget-wide v5, p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->d:D
+
+    .line 61
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Double;->compare(DD)I
+
+    .line 64
+    move-result v1
+
+    .line 65
+    if-eqz v1, :cond_43
+
+    .line 67
+    return v2
+
+    .line 68
+    :cond_43
+    iget-wide v3, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->e:D
+
+    .line 70
+    iget-wide v5, p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->e:D
+
+    .line 72
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Double;->compare(DD)I
+
+    .line 75
+    move-result v1
+
+    .line 76
+    if-eqz v1, :cond_4e
+
+    .line 78
+    return v2
+
+    .line 79
+    :cond_4e
+    iget-wide v3, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->f:D
+
+    .line 81
+    iget-wide v5, p1, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->f:D
+
+    .line 83
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Double;->compare(DD)I
+
+    .line 86
+    move-result p1
+
+    .line 87
+    if-eqz p1, :cond_59
+
+    .line 89
+    return v2
+
+    .line 90
+    :cond_59
+    return v0
+.end method
+
+.method public final getA()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->a:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final getB()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->b:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final getC()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->c:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final getD()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->d:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final getE()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->e:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final getF()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->f:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public final getGamma()D
+    .registers 3
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 3
+    return-wide v0
+.end method
+
+.method public hashCode()I
+    .registers 4
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 3
+    invoke-static {v0, v1}, Landroidx/collection/a;->a(D)I
+
+    .line 6
+    move-result v0
+
+    .line 7
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 9
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->a:D
+
+    .line 11
+    invoke-static {v1, v2}, Landroidx/collection/a;->a(D)I
+
+    .line 14
+    move-result v1
+
+    .line 15
+    add-int/2addr v0, v1
+
+    .line 16
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 18
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->b:D
+
+    .line 20
+    invoke-static {v1, v2}, Landroidx/collection/a;->a(D)I
+
+    .line 23
+    move-result v1
+
+    .line 24
+    add-int/2addr v0, v1
+
+    .line 25
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 27
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->c:D
+
+    .line 29
+    invoke-static {v1, v2}, Landroidx/collection/a;->a(D)I
+
+    .line 32
+    move-result v1
+
+    .line 33
+    add-int/2addr v0, v1
+
+    .line 34
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 36
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->d:D
+
+    .line 38
+    invoke-static {v1, v2}, Landroidx/collection/a;->a(D)I
+
+    .line 41
+    move-result v1
+
+    .line 42
+    add-int/2addr v0, v1
+
+    .line 43
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 45
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->e:D
+
+    .line 47
+    invoke-static {v1, v2}, Landroidx/collection/a;->a(D)I
+
+    .line 50
+    move-result v1
+
+    .line 51
+    add-int/2addr v0, v1
+
+    .line 52
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 54
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->f:D
+
+    .line 56
+    invoke-static {v1, v2}, Landroidx/collection/a;->a(D)I
+
+    .line 59
+    move-result v1
+
+    .line 60
+    add-int/2addr v0, v1
+
+    .line 61
+    return v0
+.end method
+
+.method public final isHLGish$ui_graphics()Z
+    .registers 5
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 3
+    const-wide/high16 v2, -0x3ff8000000000000L  # -3.0
+
+    .line 5
+    cmpg-double v0, v0, v2
+
+    .line 7
+    if-nez v0, :cond_a
+
+    .line 9
+    const/4 v0, 0x1
+
+    .line 10
+    return v0
+
+    .line 11
+    :cond_a
+    const/4 v0, 0x0
+
+    .line 12
+    return v0
+.end method
+
+.method public final isPQish$ui_graphics()Z
+    .registers 5
+
+    .line 1
+    iget-wide v0, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 3
+    const-wide/high16 v2, -0x4000000000000000L  # -2.0
+
+    .line 5
+    cmpg-double v0, v0, v2
+
+    .line 7
+    if-nez v0, :cond_a
+
+    .line 9
+    const/4 v0, 0x1
+
+    .line 10
+    return v0
+
+    .line 11
+    :cond_a
+    const/4 v0, 0x0
+
+    .line 12
+    return v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .registers 4
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 3
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 6
+    const-string v1, "TransferParameters(gamma="
+
+    .line 8
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 11
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->gamma:D
+
+    .line 13
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    .line 16
+    const-string v1, ", a="
+
+    .line 18
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 21
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->a:D
+
+    .line 23
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    .line 26
+    const-string v1, ", b="
+
+    .line 28
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 31
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->b:D
+
+    .line 33
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    .line 36
+    const-string v1, ", c="
+
+    .line 38
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 41
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->c:D
+
+    .line 43
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    .line 46
+    const-string v1, ", d="
+
+    .line 48
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 51
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->d:D
+
+    .line 53
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    .line 56
+    const-string v1, ", e="
+
+    .line 58
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 61
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->e:D
+
+    .line 63
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    .line 66
+    const-string v1, ", f="
+
+    .line 68
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 71
+    iget-wide v1, p0, Landroidx/compose/ui/graphics/colorspace/TransferParameters;->f:D
+
+    .line 73
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    .line 76
+    const/16 v1, 0x29
+
+    .line 78
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 81
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 84
+    move-result-object v0
+
+    .line 85
+    return-object v0
+.end method

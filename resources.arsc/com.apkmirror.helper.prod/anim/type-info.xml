@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<type id="0x01">
+    <entry id="0x7f010000" name="abc_fade_in" />
+    <entry id="0x7f010001" name="abc_fade_out" />
+    <entry id="0x7f010002" name="abc_grow_fade_in_from_bottom" />
+    <entry id="0x7f010003" name="abc_popup_enter" />
+    <entry id="0x7f010004" name="abc_popup_exit" />
+    <entry id="0x7f010005" name="abc_shrink_fade_out_from_bottom" />
+    <entry id="0x7f010006" name="abc_slide_in_bottom" />
+    <entry id="0x7f010007" name="abc_slide_in_top" />
+    <entry id="0x7f010008" name="abc_slide_out_bottom" />
+    <entry id="0x7f010009" name="abc_slide_out_top" />
+    <entry id="0x7f01000a" name="abc_tooltip_enter" />
+    <entry id="0x7f01000b" name="abc_tooltip_exit" />
+    <entry id="0x7f01000c" name="btn_checkbox_to_checked_box_inner_merged_animation" />
+    <entry id="0x7f01000d" name="btn_checkbox_to_checked_box_outer_merged_animation" />
+    <entry id="0x7f01000e" name="btn_checkbox_to_checked_icon_null_animation" />
+    <entry id="0x7f01000f" name="btn_checkbox_to_unchecked_box_inner_merged_animation" />
+    <entry id="0x7f010010" name="btn_checkbox_to_unchecked_check_path_merged_animation" />
+    <entry id="0x7f010011" name="btn_checkbox_to_unchecked_icon_null_animation" />
+    <entry id="0x7f010012" name="btn_radio_to_off_mtrl_dot_group_animation" />
+    <entry id="0x7f010013" name="btn_radio_to_off_mtrl_ring_outer_animation" />
+    <entry id="0x7f010014" name="btn_radio_to_off_mtrl_ring_outer_path_animation" />
+    <entry id="0x7f010015" name="btn_radio_to_on_mtrl_dot_group_animation" />
+    <entry id="0x7f010016" name="btn_radio_to_on_mtrl_ring_outer_animation" />
+    <entry id="0x7f010017" name="btn_radio_to_on_mtrl_ring_outer_path_animation" />
+    <entry id="0x7f010018" name="fragment_fast_out_extra_slow_in" />
+</type>

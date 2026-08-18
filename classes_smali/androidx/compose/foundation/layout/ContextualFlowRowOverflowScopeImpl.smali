@@ -1,0 +1,279 @@
+.class public final Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Landroidx/compose/foundation/layout/FlowRowOverflowScope;
+.implements Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScope;
+
+
+# annotations
+.annotation build Landroidx/compose/foundation/layout/ExperimentalLayoutApi;
+.end annotation
+
+.annotation build Landroidx/compose/runtime/internal/StabilityInferred;
+    parameters = 0x1
+.end annotation
+
+
+# static fields
+.field public static final $stable:I
+
+
+# instance fields
+.field private final synthetic $$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+.field private final state:Landroidx/compose/foundation/layout/FlowLayoutOverflowState;
+    .annotation build Lke/l;
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 0
+
+    .line 1
+    return-void
+.end method
+
+.method public constructor <init>(Landroidx/compose/foundation/layout/FlowLayoutOverflowState;)V
+    .registers 3
+    .param p1  # Landroidx/compose/foundation/layout/FlowLayoutOverflowState;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    new-instance v0, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    .line 6
+    invoke-direct {v0, p1}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;-><init>(Landroidx/compose/foundation/layout/FlowLayoutOverflowState;)V
+
+    .line 9
+    iput-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    .line 11
+    iput-object p1, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->state:Landroidx/compose/foundation/layout/FlowLayoutOverflowState;
+
+    .line 13
+    return-void
+.end method
+
+
+# virtual methods
+.method public align(Landroidx/compose/ui/Modifier;Landroidx/compose/ui/Alignment$Vertical;)Landroidx/compose/ui/Modifier;
+    .registers 4
+    .param p1  # Landroidx/compose/ui/Modifier;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p2  # Landroidx/compose/ui/Alignment$Vertical;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .annotation build Landroidx/compose/runtime/Stable;
+    .end annotation
+
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    .line 3
+    invoke-virtual {v0, p1, p2}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;->align(Landroidx/compose/ui/Modifier;Landroidx/compose/ui/Alignment$Vertical;)Landroidx/compose/ui/Modifier;
+
+    .line 6
+    move-result-object p1
+
+    .line 7
+    return-object p1
+.end method
+
+.method public alignBy(Landroidx/compose/ui/Modifier;Landroidx/compose/ui/layout/HorizontalAlignmentLine;)Landroidx/compose/ui/Modifier;
+    .registers 4
+    .param p1  # Landroidx/compose/ui/Modifier;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p2  # Landroidx/compose/ui/layout/HorizontalAlignmentLine;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .annotation build Landroidx/compose/runtime/Stable;
+    .end annotation
+
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    invoke-virtual {v0, p1, p2}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;->alignBy(Landroidx/compose/ui/Modifier;Landroidx/compose/ui/layout/HorizontalAlignmentLine;)Landroidx/compose/ui/Modifier;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public alignBy(Landroidx/compose/ui/Modifier;Lsa/l;)Landroidx/compose/ui/Modifier;
+    .registers 4
+    .param p1  # Landroidx/compose/ui/Modifier;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p2  # Lsa/l;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .annotation build Landroidx/compose/runtime/Stable;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/compose/ui/Modifier;",
+            "Lsa/l<",
+            "-",
+            "Landroidx/compose/ui/layout/Measured;",
+            "Ljava/lang/Integer;",
+            ">;)",
+            "Landroidx/compose/ui/Modifier;"
+        }
+    .end annotation
+
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 2
+    iget-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    invoke-virtual {v0, p1, p2}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;->alignBy(Landroidx/compose/ui/Modifier;Lsa/l;)Landroidx/compose/ui/Modifier;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public alignByBaseline(Landroidx/compose/ui/Modifier;)Landroidx/compose/ui/Modifier;
+    .registers 3
+    .param p1  # Landroidx/compose/ui/Modifier;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .annotation build Landroidx/compose/runtime/Stable;
+    .end annotation
+
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    .line 3
+    invoke-virtual {v0, p1}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;->alignByBaseline(Landroidx/compose/ui/Modifier;)Landroidx/compose/ui/Modifier;
+
+    .line 6
+    move-result-object p1
+
+    .line 7
+    return-object p1
+.end method
+
+.method public fillMaxRowHeight(Landroidx/compose/ui/Modifier;F)Landroidx/compose/ui/Modifier;
+    .registers 4
+    .param p1  # Landroidx/compose/ui/Modifier;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p2  # F
+        .annotation build Landroidx/annotation/FloatRange;
+            from = 0.0
+            to = 1.0
+        .end annotation
+    .end param
+    .annotation build Landroidx/compose/foundation/layout/ExperimentalLayoutApi;
+    .end annotation
+
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    .line 3
+    invoke-virtual {v0, p1, p2}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;->fillMaxRowHeight(Landroidx/compose/ui/Modifier;F)Landroidx/compose/ui/Modifier;
+
+    .line 6
+    move-result-object p1
+
+    .line 7
+    return-object p1
+.end method
+
+.method public getShownItemCount()I
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    .line 3
+    invoke-virtual {v0}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;->getShownItemCount()I
+
+    .line 6
+    move-result v0
+
+    .line 7
+    return v0
+.end method
+
+.method public getTotalItemCount()I
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    .line 3
+    invoke-virtual {v0}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;->getTotalItemCount()I
+
+    .line 6
+    move-result v0
+
+    .line 7
+    return v0
+.end method
+
+.method public weight(Landroidx/compose/ui/Modifier;FZ)Landroidx/compose/ui/Modifier;
+    .registers 5
+    .param p1  # Landroidx/compose/ui/Modifier;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+    .param p2  # F
+        .annotation build Landroidx/annotation/FloatRange;
+            from = 0.0
+            fromInclusive = false
+        .end annotation
+    .end param
+    .annotation build Landroidx/compose/runtime/Stable;
+    .end annotation
+
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/foundation/layout/ContextualFlowRowOverflowScopeImpl;->$$delegate_0:Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;
+
+    .line 3
+    invoke-virtual {v0, p1, p2, p3}, Landroidx/compose/foundation/layout/FlowRowOverflowScopeImpl;->weight(Landroidx/compose/ui/Modifier;FZ)Landroidx/compose/ui/Modifier;
+
+    .line 6
+    move-result-object p1
+
+    .line 7
+    return-object p1
+.end method

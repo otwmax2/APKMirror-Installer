@@ -1,0 +1,469 @@
+.class final Landroidx/compose/ui/text/input/GapBuffer;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# annotations
+.annotation system Ldalvik/annotation/SourceDebugExtension;
+    value = "SMAP\nGapBuffer.kt\nKotlin\n*S Kotlin\n*F\n+ 1 GapBuffer.kt\nandroidx/compose/ui/text/input/GapBuffer\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,318:1\n1#2:319\n*E\n"
+.end annotation
+
+.annotation build Lkotlin/jvm/internal/s1;
+    value = {
+        "SMAP\nGapBuffer.kt\nKotlin\n*S Kotlin\n*F\n+ 1 GapBuffer.kt\nandroidx/compose/ui/text/input/GapBuffer\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,318:1\n1#2:319\n*E\n"
+    }
+.end annotation
+
+
+# instance fields
+.field private buffer:[C
+    .annotation build Lke/l;
+    .end annotation
+.end field
+
+.field private capacity:I
+
+.field private gapEnd:I
+
+.field private gapStart:I
+
+
+# direct methods
+.method public constructor <init>([CII)V
+    .registers 5
+    .param p1  # [C
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    array-length v0, p1
+
+    .line 5
+    iput v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->capacity:I
+
+    .line 7
+    iput-object p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 9
+    iput p2, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 11
+    iput p3, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 13
+    return-void
+.end method
+
+.method private final delete(II)V
+    .registers 7
+
+    .line 1
+    iget v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 3
+    if-ge p1, v0, :cond_18
+
+    .line 5
+    if-gt p2, v0, :cond_18
+
+    .line 7
+    sub-int v1, v0, p2
+
+    .line 9
+    iget-object v2, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 11
+    iget v3, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 13
+    sub-int/2addr v3, v1
+
+    .line 14
+    invoke-static {v2, v2, v3, p2, v0}, Lu9/q;->w0([C[CIII)[C
+
+    .line 17
+    iput p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 19
+    iget p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 21
+    sub-int/2addr p1, v1
+
+    .line 22
+    iput p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 24
+    return-void
+
+    .line 25
+    :cond_18
+    if-ge p1, v0, :cond_26
+
+    .line 27
+    if-lt p2, v0, :cond_26
+
+    .line 29
+    invoke-direct {p0}, Landroidx/compose/ui/text/input/GapBuffer;->gapLength()I
+
+    .line 32
+    move-result v0
+
+    .line 33
+    add-int/2addr p2, v0
+
+    .line 34
+    iput p2, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 36
+    iput p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 38
+    return-void
+
+    .line 39
+    :cond_26
+    invoke-direct {p0}, Landroidx/compose/ui/text/input/GapBuffer;->gapLength()I
+
+    .line 42
+    move-result v0
+
+    .line 43
+    add-int/2addr p1, v0
+
+    .line 44
+    invoke-direct {p0}, Landroidx/compose/ui/text/input/GapBuffer;->gapLength()I
+
+    .line 47
+    move-result v0
+
+    .line 48
+    add-int/2addr p2, v0
+
+    .line 49
+    iget v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 51
+    sub-int v1, p1, v0
+
+    .line 53
+    iget-object v2, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 55
+    iget v3, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 57
+    invoke-static {v2, v2, v3, v0, p1}, Lu9/q;->w0([C[CIII)[C
+
+    .line 60
+    iget p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 62
+    add-int/2addr p1, v1
+
+    .line 63
+    iput p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 65
+    iput p2, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 67
+    return-void
+.end method
+
+.method private final gapLength()I
+    .registers 3
+
+    .line 1
+    iget v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 3
+    iget v1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 5
+    sub-int/2addr v0, v1
+
+    .line 6
+    return v0
+.end method
+
+.method private final makeSureAvailableSpace(I)V
+    .registers 7
+
+    .line 1
+    invoke-direct {p0}, Landroidx/compose/ui/text/input/GapBuffer;->gapLength()I
+
+    .line 4
+    move-result v0
+
+    .line 5
+    if-gt p1, v0, :cond_7
+
+    .line 7
+    return-void
+
+    .line 8
+    :cond_7
+    invoke-direct {p0}, Landroidx/compose/ui/text/input/GapBuffer;->gapLength()I
+
+    .line 11
+    move-result v0
+
+    .line 12
+    sub-int/2addr p1, v0
+
+    .line 13
+    iget v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->capacity:I
+
+    .line 15
+    :goto_e
+    mul-int/lit8 v0, v0, 0x2
+
+    .line 17
+    iget v1, p0, Landroidx/compose/ui/text/input/GapBuffer;->capacity:I
+
+    .line 19
+    sub-int v1, v0, v1
+
+    .line 21
+    if-ge v1, p1, :cond_17
+
+    .line 23
+    goto :goto_e
+
+    .line 24
+    :cond_17
+    new-array p1, v0, [C
+
+    .line 26
+    iget-object v1, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 28
+    iget v2, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 30
+    const/4 v3, 0x0
+
+    .line 31
+    invoke-static {v1, p1, v3, v3, v2}, Lu9/q;->w0([C[CIII)[C
+
+    .line 34
+    iget v1, p0, Landroidx/compose/ui/text/input/GapBuffer;->capacity:I
+
+    .line 36
+    iget v2, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 38
+    sub-int/2addr v1, v2
+
+    .line 39
+    sub-int v3, v0, v1
+
+    .line 41
+    iget-object v4, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 43
+    add-int/2addr v1, v2
+
+    .line 44
+    invoke-static {v4, p1, v3, v2, v1}, Lu9/q;->w0([C[CIII)[C
+
+    .line 47
+    iput-object p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 49
+    iput v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->capacity:I
+
+    .line 51
+    iput v3, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 53
+    return-void
+.end method
+
+
+# virtual methods
+.method public final append(Ljava/lang/StringBuilder;)V
+    .registers 6
+    .param p1  # Ljava/lang/StringBuilder;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+
+    .line 1
+    iget-object v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 3
+    const/4 v1, 0x0
+
+    .line 4
+    iget v2, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 6
+    invoke-virtual {p1, v0, v1, v2}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
+
+    .line 9
+    const-string v0, "append(...)"
+
+    .line 11
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/m0;->o(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 14
+    iget-object v1, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 16
+    iget v2, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 18
+    iget v3, p0, Landroidx/compose/ui/text/input/GapBuffer;->capacity:I
+
+    .line 20
+    sub-int/2addr v3, v2
+
+    .line 21
+    invoke-virtual {p1, v1, v2, v3}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
+
+    .line 24
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/m0;->o(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 27
+    return-void
+.end method
+
+.method public final get(I)C
+    .registers 4
+
+    .line 1
+    iget v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 3
+    if-ge p1, v0, :cond_9
+
+    .line 5
+    iget-object v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 7
+    aget-char p1, v0, p1
+
+    .line 9
+    return p1
+
+    .line 10
+    :cond_9
+    iget-object v1, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 12
+    sub-int/2addr p1, v0
+
+    .line 13
+    iget v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapEnd:I
+
+    .line 15
+    add-int/2addr p1, v0
+
+    .line 16
+    aget-char p1, v1, p1
+
+    .line 18
+    return p1
+.end method
+
+.method public final length()I
+    .registers 3
+
+    .line 1
+    iget v0, p0, Landroidx/compose/ui/text/input/GapBuffer;->capacity:I
+
+    .line 3
+    invoke-direct {p0}, Landroidx/compose/ui/text/input/GapBuffer;->gapLength()I
+
+    .line 6
+    move-result v1
+
+    .line 7
+    sub-int/2addr v0, v1
+
+    .line 8
+    return v0
+.end method
+
+.method public final replace(IILjava/lang/String;)V
+    .registers 6
+    .param p3  # Ljava/lang/String;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+
+    .line 1
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    .line 4
+    move-result v0
+
+    .line 5
+    sub-int v1, p2, p1
+
+    .line 7
+    sub-int/2addr v0, v1
+
+    .line 8
+    invoke-direct {p0, v0}, Landroidx/compose/ui/text/input/GapBuffer;->makeSureAvailableSpace(I)V
+
+    .line 11
+    invoke-direct {p0, p1, p2}, Landroidx/compose/ui/text/input/GapBuffer;->delete(II)V
+
+    .line 14
+    iget-object p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->buffer:[C
+
+    .line 16
+    iget p2, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 18
+    invoke-static {p3, p1, p2}, Landroidx/compose/ui/text/input/GapBufferKt;->access$toCharArray(Ljava/lang/String;[CI)V
+
+    .line 21
+    iget p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 23
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    .line 26
+    move-result p2
+
+    .line 27
+    add-int/2addr p1, p2
+
+    .line 28
+    iput p1, p0, Landroidx/compose/ui/text/input/GapBuffer;->gapStart:I
+
+    .line 30
+    return-void
+.end method
+
+.method public toString()Ljava/lang/String;
+    .registers 2
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 3
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 6
+    invoke-virtual {v0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    .line 9
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 12
+    move-result-object v0
+
+    .line 13
+    return-object v0
+.end method

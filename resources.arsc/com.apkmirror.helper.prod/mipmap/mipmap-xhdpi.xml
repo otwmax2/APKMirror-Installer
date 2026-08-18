@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <path name="ic_launcher">res/mipmap-xhdpi-v4/ic_launcher.webp</path>
+    <path name="tv_banner">res/mipmap-xhdpi-v4/tv_banner.png</path>
+</resources>

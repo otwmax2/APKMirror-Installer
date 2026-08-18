@@ -1,0 +1,124 @@
+.class public final Lcom/google/android/gms/measurement/internal/zzjs;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# instance fields
+.field final zza:Landroid/content/Context;
+
+.field zzb:Ljava/lang/Boolean;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field zzc:J
+
+.field zzd:Lcom/google/android/gms/internal/measurement/zzdd;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field zze:Z
+
+.field final zzf:Ljava/lang/Long;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field zzg:Ljava/lang/String;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/internal/measurement/zzdd;Ljava/lang/Long;)V
+    .registers 7
+    .param p2  # Lcom/google/android/gms/internal/measurement/zzdd;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3  # Ljava/lang/Long;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    const/4 v0, 0x1
+
+    .line 5
+    iput-boolean v0, p0, Lcom/google/android/gms/measurement/internal/zzjs;->zze:Z
+
+    .line 7
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 10
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    .line 13
+    move-result-object p1
+
+    .line 14
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 17
+    iput-object p1, p0, Lcom/google/android/gms/measurement/internal/zzjs;->zza:Landroid/content/Context;
+
+    .line 19
+    iput-object p3, p0, Lcom/google/android/gms/measurement/internal/zzjs;->zzf:Ljava/lang/Long;
+
+    .line 21
+    if-eqz p2, :cond_34
+
+    .line 23
+    iput-object p2, p0, Lcom/google/android/gms/measurement/internal/zzjs;->zzd:Lcom/google/android/gms/internal/measurement/zzdd;
+
+    .line 25
+    iget-boolean p1, p2, Lcom/google/android/gms/internal/measurement/zzdd;->zzc:Z
+
+    .line 27
+    iput-boolean p1, p0, Lcom/google/android/gms/measurement/internal/zzjs;->zze:Z
+
+    .line 29
+    iget-wide v1, p2, Lcom/google/android/gms/internal/measurement/zzdd;->zzb:J
+
+    .line 31
+    iput-wide v1, p0, Lcom/google/android/gms/measurement/internal/zzjs;->zzc:J
+
+    .line 33
+    iget-object p1, p2, Lcom/google/android/gms/internal/measurement/zzdd;->zze:Ljava/lang/String;
+
+    .line 35
+    iput-object p1, p0, Lcom/google/android/gms/measurement/internal/zzjs;->zzg:Ljava/lang/String;
+
+    .line 37
+    iget-object p1, p2, Lcom/google/android/gms/internal/measurement/zzdd;->zzd:Landroid/os/Bundle;
+
+    .line 39
+    if-eqz p1, :cond_34
+
+    .line 41
+    const-string p2, "dataCollectionDefaultEnabled"
+
+    .line 43
+    invoke-virtual {p1, p2, v0}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    .line 46
+    move-result p1
+
+    .line 47
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    .line 50
+    move-result-object p1
+
+    .line 51
+    iput-object p1, p0, Lcom/google/android/gms/measurement/internal/zzjs;->zzb:Ljava/lang/Boolean;
+
+    .line 53
+    :cond_34
+    return-void
+.end method

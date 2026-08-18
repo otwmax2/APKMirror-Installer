@@ -1,0 +1,378 @@
+.class public final Lk7/a$c;
+.super Lcom/google/protobuf/k1$b;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Lk7/b;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lk7/a;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "c"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/google/protobuf/k1$b<",
+        "Lk7/a;",
+        "Lk7/a$c;",
+        ">;",
+        "Lk7/b;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    .line 2
+    invoke-static {}, Lk7/a;->g0()Lk7/a;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/google/protobuf/k1$b;-><init>(Lcom/google/protobuf/k1;)V
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lk7/a$a;)V
+    .registers 2
+
+    .line 1
+    invoke-direct {p0}, Lk7/a$c;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public L7(Ljava/lang/String;)Z
+    .registers 3
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 6
+    check-cast v0, Lk7/a;
+
+    .line 8
+    invoke-virtual {v0}, Lk7/a;->n6()Ljava/util/Map;
+
+    .line 11
+    move-result-object v0
+
+    .line 12
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    .line 15
+    move-result p1
+
+    .line 16
+    return p1
+.end method
+
+.method public Tc()Ljava/util/Map;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lk7/k2;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lk7/a$c;->n6()Ljava/util/Map;
+
+    .line 4
+    move-result-object v0
+
+    .line 5
+    return-object v0
+.end method
+
+.method public gd(Ljava/lang/String;Lk7/k2;)Lk7/k2;
+    .registers 5
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 6
+    check-cast v0, Lk7/a;
+
+    .line 8
+    invoke-virtual {v0}, Lk7/a;->n6()Ljava/util/Map;
+
+    .line 11
+    move-result-object v0
+
+    .line 12
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    .line 15
+    move-result v1
+
+    .line 16
+    if-eqz v1, :cond_18
+
+    .line 18
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 21
+    move-result-object p1
+
+    .line 22
+    check-cast p1, Lk7/k2;
+
+    .line 24
+    return-object p1
+
+    .line 25
+    :cond_18
+    return-object p2
+.end method
+
+.method public n6()Ljava/util/Map;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lk7/k2;",
+            ">;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 3
+    check-cast v0, Lk7/a;
+
+    .line 5
+    invoke-virtual {v0}, Lk7/a;->n6()Ljava/util/Map;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    invoke-static {v0}, Lj$/util/DesugarCollections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+
+    .line 12
+    move-result-object v0
+
+    .line 13
+    return-object v0
+.end method
+
+.method public q3()I
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 3
+    check-cast v0, Lk7/a;
+
+    .line 5
+    invoke-virtual {v0}, Lk7/a;->n6()Ljava/util/Map;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    invoke-interface {v0}, Ljava/util/Map;->size()I
+
+    .line 12
+    move-result v0
+
+    .line 13
+    return v0
+.end method
+
+.method public qf(Ljava/lang/String;)Lk7/k2;
+    .registers 4
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 6
+    check-cast v0, Lk7/a;
+
+    .line 8
+    invoke-virtual {v0}, Lk7/a;->n6()Ljava/util/Map;
+
+    .line 11
+    move-result-object v0
+
+    .line 12
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    .line 15
+    move-result v1
+
+    .line 16
+    if-eqz v1, :cond_18
+
+    .line 18
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 21
+    move-result-object p1
+
+    .line 22
+    check-cast p1, Lk7/k2;
+
+    .line 24
+    return-object p1
+
+    .line 25
+    :cond_18
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    .line 27
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    .line 30
+    throw p1
+.end method
+
+.method public sf()Lk7/a$c;
+    .registers 2
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/protobuf/k1$b;->copyOnWrite()V
+
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 6
+    check-cast v0, Lk7/a;
+
+    .line 8
+    invoke-static {v0}, Lk7/a;->S4(Lk7/a;)Ljava/util/Map;
+
+    .line 11
+    move-result-object v0
+
+    .line 12
+    invoke-interface {v0}, Ljava/util/Map;->clear()V
+
+    .line 15
+    return-object p0
+.end method
+
+.method public tf(Ljava/lang/String;Lk7/k2;)Lk7/a$c;
+    .registers 4
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 4
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 7
+    invoke-virtual {p0}, Lcom/google/protobuf/k1$b;->copyOnWrite()V
+
+    .line 10
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 12
+    check-cast v0, Lk7/a;
+
+    .line 14
+    invoke-static {v0}, Lk7/a;->S4(Lk7/a;)Ljava/util/Map;
+
+    .line 17
+    move-result-object v0
+
+    .line 18
+    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 21
+    return-object p0
+.end method
+
+.method public uf(Ljava/util/Map;)Lk7/a$c;
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lk7/k2;",
+            ">;)",
+            "Lk7/a$c;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/protobuf/k1$b;->copyOnWrite()V
+
+    .line 4
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 6
+    check-cast v0, Lk7/a;
+
+    .line 8
+    invoke-static {v0}, Lk7/a;->S4(Lk7/a;)Ljava/util/Map;
+
+    .line 11
+    move-result-object v0
+
+    .line 12
+    invoke-interface {v0, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+
+    .line 15
+    return-object p0
+.end method
+
+.method public vf(Ljava/lang/String;)Lk7/a$c;
+    .registers 3
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 4
+    invoke-virtual {p0}, Lcom/google/protobuf/k1$b;->copyOnWrite()V
+
+    .line 7
+    iget-object v0, p0, Lcom/google/protobuf/k1$b;->instance:Lcom/google/protobuf/k1;
+
+    .line 9
+    check-cast v0, Lk7/a;
+
+    .line 11
+    invoke-static {v0}, Lk7/a;->S4(Lk7/a;)Ljava/util/Map;
+
+    .line 14
+    move-result-object v0
+
+    .line 15
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 18
+    return-object p0
+.end method

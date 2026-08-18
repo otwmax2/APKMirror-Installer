@@ -1,0 +1,53 @@
+.class public Lcom/google/android/gms/common/GooglePlayServicesManifestException;
+.super Ljava/lang/IllegalStateException;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# annotations
+.annotation build Lcom/google/android/gms/common/annotation/KeepName;
+.end annotation
+
+
+# instance fields
+.field private final zza:I
+
+
+# direct methods
+.method public constructor <init>(ILjava/lang/String;)V
+    .registers 3
+    .param p2  # Ljava/lang/String;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    .line 1
+    invoke-direct {p0, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    .line 4
+    iput p1, p0, Lcom/google/android/gms/common/GooglePlayServicesManifestException;->zza:I
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public getActualVersion()I
+    .registers 2
+
+    .line 1
+    iget v0, p0, Lcom/google/android/gms/common/GooglePlayServicesManifestException;->zza:I
+
+    .line 3
+    return v0
+.end method
+
+.method public getExpectedVersion()I
+    .registers 2
+
+    .line 1
+    sget v0, Lcom/google/android/gms/common/GoogleApiAvailabilityLight;->GOOGLE_PLAY_SERVICES_VERSION_CODE:I
+
+    .line 3
+    return v0
+.end method

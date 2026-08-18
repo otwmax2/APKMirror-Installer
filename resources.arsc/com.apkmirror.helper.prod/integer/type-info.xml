@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<type id="0x0a">
+    <entry id="0x7f0a0000" name="abc_config_activityDefaultDur" />
+    <entry id="0x7f0a0001" name="abc_config_activityShortDur" />
+    <entry id="0x7f0a0002" name="cancel_button_image_alpha" />
+    <entry id="0x7f0a0003" name="config_tooltipAnimTime" />
+    <entry id="0x7f0a0004" name="google_play_services_version" />
+    <entry id="0x7f0a0005" name="m3c_window_layout_in_display_cutout_mode" />
+    <entry id="0x7f0a0006" name="preferences_detail_pane_weight" />
+    <entry id="0x7f0a0007" name="preferences_header_pane_weight" />
+    <entry id="0x7f0a0008" name="status_bar_notification_info_maxnum" />
+</type>

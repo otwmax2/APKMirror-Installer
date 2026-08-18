@@ -1,0 +1,164 @@
+.class public final Lcom/google/android/gms/internal/measurement/zzfc;
+.super Lcom/google/android/gms/internal/measurement/zzmb;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Lcom/google/android/gms/internal/measurement/zznn;
+
+
+# direct methods
+.method private constructor <init>()V
+    .registers 2
+
+    .line 1
+    const/4 v0, 0x0
+
+    throw v0
+.end method
+
+.method public synthetic constructor <init>([B)V
+    .registers 2
+
+    .line 2
+    invoke-static {}, Lcom/google/android/gms/internal/measurement/zzfd;->zzk()Lcom/google/android/gms/internal/measurement/zzfd;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/measurement/zzmb;-><init>(Lcom/google/android/gms/internal/measurement/zzmf;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final zza()I
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/measurement/zzmb;->zza:Lcom/google/android/gms/internal/measurement/zzmf;
+
+    .line 3
+    check-cast v0, Lcom/google/android/gms/internal/measurement/zzfd;
+
+    .line 5
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/measurement/zzfd;->zzd()I
+
+    .line 8
+    move-result v0
+
+    .line 9
+    return v0
+.end method
+
+.method public final zzb(I)Lcom/google/android/gms/internal/measurement/zzfn;
+    .registers 3
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/measurement/zzmb;->zza:Lcom/google/android/gms/internal/measurement/zzmf;
+
+    .line 3
+    check-cast v0, Lcom/google/android/gms/internal/measurement/zzfd;
+
+    .line 5
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/measurement/zzfd;->zze(I)Lcom/google/android/gms/internal/measurement/zzfn;
+
+    .line 8
+    move-result-object p1
+
+    .line 9
+    return-object p1
+.end method
+
+.method public final zzc(ILcom/google/android/gms/internal/measurement/zzfm;)Lcom/google/android/gms/internal/measurement/zzfc;
+    .registers 4
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/measurement/zzmb;->zzaX()V
+
+    .line 4
+    iget-object v0, p0, Lcom/google/android/gms/internal/measurement/zzmb;->zza:Lcom/google/android/gms/internal/measurement/zzmf;
+
+    .line 6
+    check-cast v0, Lcom/google/android/gms/internal/measurement/zzfd;
+
+    .line 8
+    invoke-virtual {p2}, Lcom/google/android/gms/internal/measurement/zzmb;->zzbc()Lcom/google/android/gms/internal/measurement/zzmf;
+
+    .line 11
+    move-result-object p2
+
+    .line 12
+    check-cast p2, Lcom/google/android/gms/internal/measurement/zzfn;
+
+    .line 14
+    invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/measurement/zzfd;->zzi(ILcom/google/android/gms/internal/measurement/zzfn;)V
+
+    .line 17
+    return-object p0
+.end method
+
+.method public final zzd()I
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/measurement/zzmb;->zza:Lcom/google/android/gms/internal/measurement/zzmf;
+
+    .line 3
+    check-cast v0, Lcom/google/android/gms/internal/measurement/zzfd;
+
+    .line 5
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/measurement/zzfd;->zzg()I
+
+    .line 8
+    move-result v0
+
+    .line 9
+    return v0
+.end method
+
+.method public final zze(I)Lcom/google/android/gms/internal/measurement/zzff;
+    .registers 3
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/measurement/zzmb;->zza:Lcom/google/android/gms/internal/measurement/zzmf;
+
+    .line 3
+    check-cast v0, Lcom/google/android/gms/internal/measurement/zzfd;
+
+    .line 5
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/measurement/zzfd;->zzh(I)Lcom/google/android/gms/internal/measurement/zzff;
+
+    .line 8
+    move-result-object p1
+
+    .line 9
+    return-object p1
+.end method
+
+.method public final zzf(ILcom/google/android/gms/internal/measurement/zzfe;)Lcom/google/android/gms/internal/measurement/zzfc;
+    .registers 4
+
+    .line 1
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/measurement/zzmb;->zzaX()V
+
+    .line 4
+    iget-object v0, p0, Lcom/google/android/gms/internal/measurement/zzmb;->zza:Lcom/google/android/gms/internal/measurement/zzmf;
+
+    .line 6
+    check-cast v0, Lcom/google/android/gms/internal/measurement/zzfd;
+
+    .line 8
+    invoke-virtual {p2}, Lcom/google/android/gms/internal/measurement/zzmb;->zzbc()Lcom/google/android/gms/internal/measurement/zzmf;
+
+    .line 11
+    move-result-object p2
+
+    .line 12
+    check-cast p2, Lcom/google/android/gms/internal/measurement/zzff;
+
+    .line 14
+    invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/measurement/zzfd;->zzj(ILcom/google/android/gms/internal/measurement/zzff;)V
+
+    .line 17
+    return-object p0
+.end method

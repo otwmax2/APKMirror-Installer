@@ -1,0 +1,31 @@
+.class public interface abstract annotation Ls9/u;
+.super Ljava/lang/Object;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Ljava/lang/annotation/Annotation;
+
+
+# annotations
+.annotation runtime Ljava/lang/annotation/Documented;
+.end annotation
+
+.annotation runtime Ljava/lang/annotation/Retention;
+    value = .enum Ljava/lang/annotation/RetentionPolicy;->CLASS:Ljava/lang/annotation/RetentionPolicy;
+.end annotation
+
+.annotation build Ls9/h1;
+    level = .enum Ls9/h1$a;->q:Ls9/h1$a;
+    message = "The API is related to the experimental feature \"context parameters\" (see KEEP-367) and may be changed or removed in any future release."
+.end annotation
+
+.annotation build Ls9/l1;
+    version = "2.2"
+.end annotation
+
+.annotation runtime Lt9/c;
+.end annotation
+
+.annotation runtime Lt9/e;
+    value = .enum Lt9/a;->q:Lt9/a;
+.end annotation

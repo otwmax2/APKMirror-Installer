@@ -1,0 +1,137 @@
+.class public Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter;
+.super Ljava/util/AbstractList;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/datastore/preferences/protobuf/Internal;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "IntListAdapter"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter$IntConverter;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/util/AbstractList<",
+        "TT;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field private final converter:Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter$IntConverter;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter$IntConverter<",
+            "TT;>;"
+        }
+    .end annotation
+.end field
+
+.field private final fromList:Landroidx/datastore/preferences/protobuf/Internal$IntList;
+
+
+# direct methods
+.method public constructor <init>(Landroidx/datastore/preferences/protobuf/Internal$IntList;Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter$IntConverter;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "fromList",
+            "converter"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/datastore/preferences/protobuf/Internal$IntList;",
+            "Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter$IntConverter<",
+            "TT;>;)V"
+        }
+    .end annotation
+
+    .line 1
+    invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
+
+    .line 4
+    iput-object p1, p0, Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter;->fromList:Landroidx/datastore/preferences/protobuf/Internal$IntList;
+
+    .line 6
+    iput-object p2, p0, Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter;->converter:Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter$IntConverter;
+
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public get(I)Ljava/lang/Object;
+    .registers 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "index"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)TT;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter;->converter:Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter$IntConverter;
+
+    .line 3
+    iget-object v1, p0, Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter;->fromList:Landroidx/datastore/preferences/protobuf/Internal$IntList;
+
+    .line 5
+    invoke-interface {v1, p1}, Landroidx/datastore/preferences/protobuf/Internal$IntList;->getInt(I)I
+
+    .line 8
+    move-result p1
+
+    .line 9
+    invoke-interface {v0, p1}, Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter$IntConverter;->convert(I)Ljava/lang/Object;
+
+    .line 12
+    move-result-object p1
+
+    .line 13
+    return-object p1
+.end method
+
+.method public size()I
+    .registers 2
+
+    .line 1
+    iget-object v0, p0, Landroidx/datastore/preferences/protobuf/Internal$IntListAdapter;->fromList:Landroidx/datastore/preferences/protobuf/Internal$IntList;
+
+    .line 3
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    .line 6
+    move-result v0
+
+    .line 7
+    return v0
+.end method

@@ -1,0 +1,90 @@
+.class public final Lcom/vungle/ads/internal/presenter/g$q;
+.super Lkotlin/jvm/internal/o0;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+# interfaces
+.implements Lsa/a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/vungle/ads/internal/presenter/g;-><init>(Lcom/vungle/ads/internal/ui/view/b;Lt8/b;Lt8/l;Lcom/vungle/ads/internal/ui/o;Ljava/util/concurrent/Executor;Lv8/e;Lcom/vungle/ads/internal/platform/e;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lkotlin/jvm/internal/o0;",
+        "Lsa/a<",
+        "Lcom/vungle/ads/internal/util/v;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/vungle/ads/internal/presenter/g;
+
+
+# direct methods
+.method public constructor <init>(Lcom/vungle/ads/internal/presenter/g;)V
+    .registers 2
+
+    .line 1
+    iput-object p1, p0, Lcom/vungle/ads/internal/presenter/g$q;->this$0:Lcom/vungle/ads/internal/presenter/g;
+
+    .line 3
+    const/4 p1, 0x0
+
+    .line 4
+    invoke-direct {p0, p1}, Lkotlin/jvm/internal/o0;-><init>(I)V
+
+    .line 7
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke()Lcom/vungle/ads/internal/util/v;
+    .registers 9
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 2
+    new-instance v0, Lcom/vungle/ads/internal/util/v;
+
+    new-instance v5, Lcom/vungle/ads/internal/presenter/g$q$a;
+
+    iget-object v1, p0, Lcom/vungle/ads/internal/presenter/g$q;->this$0:Lcom/vungle/ads/internal/presenter/g;
+
+    invoke-direct {v5, v1}, Lcom/vungle/ads/internal/presenter/g$q$a;-><init>(Lcom/vungle/ads/internal/presenter/g;)V
+
+    const/4 v6, 0x4
+
+    const/4 v7, 0x0
+
+    const-wide/high16 v1, 0x4018000000000000L  # 6.0
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-direct/range {v0 .. v7}, Lcom/vungle/ads/internal/util/v;-><init>(DZLsa/a;Lsa/a;ILkotlin/jvm/internal/x;)V
+
+    return-object v0
+.end method
+
+.method public bridge synthetic invoke()Ljava/lang/Object;
+    .registers 2
+
+    .line 1
+    invoke-virtual {p0}, Lcom/vungle/ads/internal/presenter/g$q;->invoke()Lcom/vungle/ads/internal/util/v;
+
+    move-result-object v0
+
+    return-object v0
+.end method

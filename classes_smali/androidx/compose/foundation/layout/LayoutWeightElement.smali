@@ -1,0 +1,305 @@
+.class public final Landroidx/compose/foundation/layout/LayoutWeightElement;
+.super Landroidx/compose/ui/node/ModifierNodeElement;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# annotations
+.annotation build Landroidx/compose/runtime/internal/StabilityInferred;
+    parameters = 0x1
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroidx/compose/ui/node/ModifierNodeElement<",
+        "Landroidx/compose/foundation/layout/LayoutWeightNode;",
+        ">;"
+    }
+.end annotation
+
+
+# static fields
+.field public static final $stable:I
+
+
+# instance fields
+.field private final fill:Z
+
+.field private final weight:F
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .registers 0
+
+    .line 1
+    return-void
+.end method
+
+.method public constructor <init>(FZ)V
+    .registers 3
+
+    .line 1
+    invoke-direct {p0}, Landroidx/compose/ui/node/ModifierNodeElement;-><init>()V
+
+    .line 4
+    iput p1, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    .line 6
+    iput-boolean p2, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->fill:Z
+
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public create()Landroidx/compose/foundation/layout/LayoutWeightNode;
+    .registers 4
+    .annotation build Lke/l;
+    .end annotation
+
+    .line 2
+    new-instance v0, Landroidx/compose/foundation/layout/LayoutWeightNode;
+
+    iget v1, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    iget-boolean v2, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->fill:Z
+
+    invoke-direct {v0, v1, v2}, Landroidx/compose/foundation/layout/LayoutWeightNode;-><init>(FZ)V
+
+    return-object v0
+.end method
+
+.method public bridge synthetic create()Landroidx/compose/ui/Modifier$Node;
+    .registers 2
+
+    .line 1
+    invoke-virtual {p0}, Landroidx/compose/foundation/layout/LayoutWeightElement;->create()Landroidx/compose/foundation/layout/LayoutWeightNode;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .registers 6
+    .param p1  # Ljava/lang/Object;
+        .annotation build Lke/m;
+        .end annotation
+    .end param
+
+    .line 1
+    const/4 v0, 0x1
+
+    .line 2
+    if-ne p0, p1, :cond_4
+
+    .line 4
+    return v0
+
+    .line 5
+    :cond_4
+    instance-of v1, p1, Landroidx/compose/foundation/layout/LayoutWeightElement;
+
+    .line 7
+    if-eqz v1, :cond_b
+
+    .line 9
+    check-cast p1, Landroidx/compose/foundation/layout/LayoutWeightElement;
+
+    .line 11
+    goto :goto_c
+
+    .line 12
+    :cond_b
+    const/4 p1, 0x0
+
+    .line 13
+    :goto_c
+    const/4 v1, 0x0
+
+    .line 14
+    if-nez p1, :cond_10
+
+    .line 16
+    return v1
+
+    .line 17
+    :cond_10
+    iget v2, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    .line 19
+    iget v3, p1, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    .line 21
+    cmpg-float v2, v2, v3
+
+    .line 23
+    if-nez v2, :cond_1f
+
+    .line 25
+    iget-boolean v2, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->fill:Z
+
+    .line 27
+    iget-boolean p1, p1, Landroidx/compose/foundation/layout/LayoutWeightElement;->fill:Z
+
+    .line 29
+    if-ne v2, p1, :cond_1f
+
+    .line 31
+    return v0
+
+    .line 32
+    :cond_1f
+    return v1
+.end method
+
+.method public final getFill()Z
+    .registers 2
+
+    .line 1
+    iget-boolean v0, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->fill:Z
+
+    .line 3
+    return v0
+.end method
+
+.method public final getWeight()F
+    .registers 2
+
+    .line 1
+    iget v0, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    .line 3
+    return v0
+.end method
+
+.method public hashCode()I
+    .registers 3
+
+    .line 1
+    iget v0, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    .line 3
+    invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    .line 6
+    move-result v0
+
+    .line 7
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 9
+    iget-boolean v1, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->fill:Z
+
+    .line 11
+    invoke-static {v1}, Landroidx/compose/animation/d;->a(Z)I
+
+    .line 14
+    move-result v1
+
+    .line 15
+    add-int/2addr v0, v1
+
+    .line 16
+    return v0
+.end method
+
+.method public inspectableProperties(Landroidx/compose/ui/platform/InspectorInfo;)V
+    .registers 5
+    .param p1  # Landroidx/compose/ui/platform/InspectorInfo;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+
+    .line 1
+    const-string v0, "weight"
+
+    .line 3
+    invoke-virtual {p1, v0}, Landroidx/compose/ui/platform/InspectorInfo;->setName(Ljava/lang/String;)V
+
+    .line 6
+    iget v1, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    .line 8
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    .line 11
+    move-result-object v1
+
+    .line 12
+    invoke-virtual {p1, v1}, Landroidx/compose/ui/platform/InspectorInfo;->setValue(Ljava/lang/Object;)V
+
+    .line 15
+    invoke-virtual {p1}, Landroidx/compose/ui/platform/InspectorInfo;->getProperties()Landroidx/compose/ui/platform/ValueElementSequence;
+
+    .line 18
+    move-result-object v1
+
+    .line 19
+    iget v2, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    .line 21
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    .line 24
+    move-result-object v2
+
+    .line 25
+    invoke-virtual {v1, v0, v2}, Landroidx/compose/ui/platform/ValueElementSequence;->set(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 28
+    invoke-virtual {p1}, Landroidx/compose/ui/platform/InspectorInfo;->getProperties()Landroidx/compose/ui/platform/ValueElementSequence;
+
+    .line 31
+    move-result-object p1
+
+    .line 32
+    iget-boolean v0, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->fill:Z
+
+    .line 34
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    .line 37
+    move-result-object v0
+
+    .line 38
+    const-string v1, "fill"
+
+    .line 40
+    invoke-virtual {p1, v1, v0}, Landroidx/compose/ui/platform/ValueElementSequence;->set(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 43
+    return-void
+.end method
+
+.method public update(Landroidx/compose/foundation/layout/LayoutWeightNode;)V
+    .registers 3
+    .param p1  # Landroidx/compose/foundation/layout/LayoutWeightNode;
+        .annotation build Lke/l;
+        .end annotation
+    .end param
+
+    .line 2
+    iget v0, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->weight:F
+
+    invoke-virtual {p1, v0}, Landroidx/compose/foundation/layout/LayoutWeightNode;->setWeight(F)V
+
+    .line 3
+    iget-boolean v0, p0, Landroidx/compose/foundation/layout/LayoutWeightElement;->fill:Z
+
+    invoke-virtual {p1, v0}, Landroidx/compose/foundation/layout/LayoutWeightNode;->setFill(Z)V
+
+    return-void
+.end method
+
+.method public bridge synthetic update(Landroidx/compose/ui/Modifier$Node;)V
+    .registers 2
+
+    .line 1
+    check-cast p1, Landroidx/compose/foundation/layout/LayoutWeightNode;
+
+    invoke-virtual {p0, p1}, Landroidx/compose/foundation/layout/LayoutWeightElement;->update(Landroidx/compose/foundation/layout/LayoutWeightNode;)V
+
+    return-void
+.end method

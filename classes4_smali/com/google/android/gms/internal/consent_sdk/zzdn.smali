@@ -1,0 +1,226 @@
+.class abstract Lcom/google/android/gms/internal/consent_sdk/zzdn;
+.super Lcom/google/android/gms/internal/consent_sdk/zzdc;
+.source "r8-map-id-873b8d5a9f31f4b7e0e3a0b5c3159defc8bc09f5424ee3abdfa881ca3d38051b"
+
+
+# instance fields
+.field final zza:Ljava/lang/CharSequence;
+
+.field zzb:I
+
+.field zzc:I
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/android/gms/internal/consent_sdk/zzdo;Ljava/lang/CharSequence;)V
+    .registers 3
+
+    .line 1
+    invoke-direct {p0}, Lcom/google/android/gms/internal/consent_sdk/zzdc;-><init>()V
+
+    .line 4
+    const/4 p1, 0x0
+
+    .line 5
+    iput p1, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzb:I
+
+    .line 7
+    const p1, 0x7fffffff
+
+    .line 10
+    iput p1, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzc:I
+
+    .line 12
+    iput-object p2, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zza:Ljava/lang/CharSequence;
+
+    .line 14
+    return-void
+.end method
+
+
+# virtual methods
+.method public final bridge synthetic zza()Ljava/lang/Object;
+    .registers 6
+
+    .line 1
+    iget v0, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzb:I
+
+    .line 3
+    :cond_2
+    :goto_2
+    iget v1, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzb:I
+
+    .line 5
+    const/4 v2, -0x1
+
+    .line 6
+    if-eq v1, v2, :cond_62
+
+    .line 8
+    invoke-virtual {p0, v1}, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzd(I)I
+
+    .line 11
+    move-result v1
+
+    .line 12
+    if-ne v1, v2, :cond_17
+
+    .line 14
+    iget-object v1, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zza:Ljava/lang/CharSequence;
+
+    .line 16
+    invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
+
+    .line 19
+    move-result v1
+
+    .line 20
+    iput v2, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzb:I
+
+    .line 22
+    move v3, v2
+
+    .line 23
+    goto :goto_1d
+
+    .line 24
+    :cond_17
+    invoke-virtual {p0, v1}, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzc(I)I
+
+    .line 27
+    move-result v3
+
+    .line 28
+    iput v3, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzb:I
+
+    .line 30
+    :goto_1d
+    if-ne v3, v0, :cond_2e
+
+    .line 32
+    add-int/lit8 v3, v3, 0x1
+
+    .line 34
+    iput v3, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzb:I
+
+    .line 36
+    iget-object v1, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zza:Ljava/lang/CharSequence;
+
+    .line 38
+    invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
+
+    .line 41
+    move-result v1
+
+    .line 42
+    if-le v3, v1, :cond_2
+
+    .line 44
+    iput v2, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzb:I
+
+    .line 46
+    goto :goto_2
+
+    .line 47
+    :cond_2e
+    if-ge v0, v1, :cond_35
+
+    .line 49
+    iget-object v3, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zza:Ljava/lang/CharSequence;
+
+    .line 51
+    invoke-interface {v3, v0}, Ljava/lang/CharSequence;->charAt(I)C
+
+    .line 54
+    :cond_35
+    if-ge v0, v1, :cond_3e
+
+    .line 56
+    iget-object v3, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zza:Ljava/lang/CharSequence;
+
+    .line 58
+    add-int/lit8 v4, v1, -0x1
+
+    .line 60
+    invoke-interface {v3, v4}, Ljava/lang/CharSequence;->charAt(I)C
+
+    .line 63
+    :cond_3e
+    iget v3, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzc:I
+
+    .line 65
+    const/4 v4, 0x1
+
+    .line 66
+    if-ne v3, v4, :cond_54
+
+    .line 68
+    iget-object v1, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zza:Ljava/lang/CharSequence;
+
+    .line 70
+    invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
+
+    .line 73
+    move-result v3
+
+    .line 74
+    iput v2, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzb:I
+
+    .line 76
+    if-le v3, v0, :cond_52
+
+    .line 78
+    add-int/lit8 v2, v3, -0x1
+
+    .line 80
+    invoke-interface {v1, v2}, Ljava/lang/CharSequence;->charAt(I)C
+
+    .line 83
+    :cond_52
+    move v1, v3
+
+    .line 84
+    goto :goto_57
+
+    .line 85
+    :cond_54
+    add-int/2addr v3, v2
+
+    .line 86
+    iput v3, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zzc:I
+
+    .line 88
+    :goto_57
+    iget-object v2, p0, Lcom/google/android/gms/internal/consent_sdk/zzdn;->zza:Ljava/lang/CharSequence;
+
+    .line 90
+    invoke-interface {v2, v0, v1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
+
+    .line 93
+    move-result-object v0
+
+    .line 94
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    .line 97
+    move-result-object v0
+
+    .line 98
+    return-object v0
+
+    .line 99
+    :cond_62
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/consent_sdk/zzdc;->zzb()Ljava/lang/Object;
+
+    .line 102
+    const/4 v0, 0x0
+
+    .line 103
+    return-object v0
+.end method
+
+.method public abstract zzc(I)I
+.end method
+
+.method public abstract zzd(I)I
+.end method

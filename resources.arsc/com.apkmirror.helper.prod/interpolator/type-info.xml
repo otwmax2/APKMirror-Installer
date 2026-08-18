@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<type id="0x0b">
+    <entry id="0x7f0b0000" name="btn_checkbox_checked_mtrl_animation_interpolator_0" />
+    <entry id="0x7f0b0001" name="btn_checkbox_checked_mtrl_animation_interpolator_1" />
+    <entry id="0x7f0b0002" name="btn_checkbox_unchecked_mtrl_animation_interpolator_0" />
+    <entry id="0x7f0b0003" name="btn_checkbox_unchecked_mtrl_animation_interpolator_1" />
+    <entry id="0x7f0b0004" name="btn_radio_to_off_mtrl_animation_interpolator_0" />
+    <entry id="0x7f0b0005" name="btn_radio_to_on_mtrl_animation_interpolator_0" />
+    <entry id="0x7f0b0006" name="fast_out_slow_in" />
+</type>

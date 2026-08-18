@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <path name="com_android_billingclient_phenotype">res/xml/com_android_billingclient_phenotype.xml</path>
+    <path name="image_share_filepaths">res/xml/image_share_filepaths.xml</path>
+    <path name="remote_config_defaults">res/xml/remote_config_defaults.xml</path>
+    <path name="splits0">res/xml/splits0.xml</path>
+</resources>
