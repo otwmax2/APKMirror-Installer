@@ -2,8 +2,9 @@
 #
 # Interactive APKMirror APKM installer for Termux.
 #
-# A .apkm file is a ZIP bundle containing base.apk, split APKs, and the
-# APKMirror manifest.json.  Split APKs have to be installed in one Package
+# A .apkm file is a ZIP bundle containing base.apk, split APKs, and APKMirror
+# metadata (manifest.json, with info.json as a compatibility fallback). Split
+# APKs have to be installed in one Package
 # Installer session; opening each file independently is not equivalent.
 #
 # Supported installation paths:
@@ -44,6 +45,7 @@ OPEN_ALL_FILES_SETTINGS=0
 
 WORK_DIR=""
 MANIFEST_FILE=""
+METADATA_ENTRY=""
 SHIZUKU_STAGE_DIR=""
 SESSION_ID=""
 SESSION_BACKEND=""
@@ -468,7 +470,7 @@ prepare_tools() {
 
     command -v unzip >/dev/null 2>&1 || fatal "unzip belum terpasang; jalankan: pkg install unzip"
     command -v zipinfo >/dev/null 2>&1 || fatal "zipinfo belum terpasang; jalankan: pkg install unzip"
-    [[ -n "$JQ_BIN" ]] || fatal "jq diperlukan untuk membaca manifest.json; jalankan: pkg install jq"
+    [[ -n "$JQ_BIN" ]] || fatal "jq diperlukan untuk membaca manifest.json/info.json; jalankan: pkg install jq"
 
     if [[ -z "$AAPT_BIN" ]]; then
         AAPT_BIN="$(command_path aapt2)"
@@ -522,12 +524,20 @@ read_zip_directory() {
 
     [[ "${#ARCHIVE_ENTRIES[@]}" -gt 0 ]] || fatal "arsip ZIP kosong"
 
-    local has_manifest=0 has_base=0 entry
+    local has_base=0 entry
+    METADATA_ENTRY=""
     for entry in "${ARCHIVE_ENTRIES[@]}"; do
-        [[ "$entry" == manifest.json ]] && has_manifest=1
+        # manifest.json is the canonical APKMirror name. If it is absent,
+        # accept info.json for APKM variants that use the compatibility name.
+        if [[ "$entry" == manifest.json ]]; then
+            METADATA_ENTRY="manifest.json"
+        elif [[ "$entry" == info.json && -z "$METADATA_ENTRY" ]]; then
+            METADATA_ENTRY="info.json"
+        fi
         [[ "$entry" == base.apk ]] && has_base=1
     done
-    [[ "$has_manifest" -eq 1 ]] || fatal "bukan APKM standar: manifest.json tidak ditemukan"
+    [[ -n "$METADATA_ENTRY" ]] || \
+        fatal "bukan APKM standar: manifest.json atau info.json tidak ditemukan"
     [[ "$has_base" -eq 1 ]] || fatal "bukan APKM standar: base.apk tidak ditemukan"
 
     APK_ENTRIES=()
@@ -577,14 +587,14 @@ extract_archive() {
     [[ -d "$temp_root" ]] || temp_root="/tmp"
     WORK_DIR="$(mktemp -d "$temp_root/apkm-installer.XXXXXX")" \
         || fatal "tidak dapat membuat folder sementara"
-    MANIFEST_FILE="$WORK_DIR/manifest.json"
+    MANIFEST_FILE="$WORK_DIR/$METADATA_ENTRY"
 
-    if ! unzip -p "$ARCHIVE" manifest.json > "$MANIFEST_FILE"; then
-        fatal "manifest.json tidak dapat diekstrak"
+    if ! unzip -p "$ARCHIVE" "$METADATA_ENTRY" > "$MANIFEST_FILE"; then
+        fatal "$METADATA_ENTRY tidak dapat diekstrak"
     fi
-    [[ -s "$MANIFEST_FILE" ]] || fatal "manifest.json kosong"
+    [[ -s "$MANIFEST_FILE" ]] || fatal "$METADATA_ENTRY kosong"
     "$JQ_BIN" empty "$MANIFEST_FILE" >/dev/null 2>&1 \
-        || fatal "manifest.json bukan JSON yang valid"
+        || fatal "$METADATA_ENTRY bukan JSON yang valid"
 
     APK_FILES=()
     APK_NAMES=()

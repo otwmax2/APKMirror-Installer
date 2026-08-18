@@ -1,6 +1,6 @@
 # APKMirror APKM Installer untuk Termux
 
-`install-apkm.sh` adalah implementasi ulang installer `.apkm` untuk Termux. Arsip APKM standar APKMirror diproses sebagai ZIP yang berisi `manifest.json`, `base.apk`, dan split APK. Seluruh split yang dipilih dipasang dalam satu sesi Package Installer Android.
+`install-apkm.sh` adalah implementasi ulang installer `.apkm` untuk Termux. Arsip APKM standar APKMirror diproses sebagai ZIP yang berisi `base.apk`, split APK, dan metadata JSON. Nama metadata kanonisnya adalah `manifest.json`; `info.json` diterima sebagai fallback jika `manifest.json` tidak tersedia. Seluruh split yang dipilih dipasang dalam satu sesi Package Installer Android.
 
 Repository ini berisi hasil decompile APKMirror Installer, bukan source build Android asli. Script ini dibuat ulang dari nol sebagai tool Termux standalone.
 
@@ -42,7 +42,7 @@ termux-setup-storage
 chmod +x termux/install-apkm.sh
 ```
 
-`jq` digunakan untuk membaca `manifest.json`. Untuk metadata tambahan dari AndroidManifest APK dan verifikasi tanda tangan, pasang tool Android SDK yang tersedia di environment Termux, misalnya `aapt2` dan `apksigner`. Tanpa tool tersebut script tetap dapat membaca metadata APKM, tetapi status tanda tangan akan ditampilkan sebagai tidak dapat diverifikasi dan field yang tidak tersedia menjadi `Tidak tersedia`.
+`jq` digunakan untuk membaca `manifest.json` atau fallback `info.json`. Untuk metadata tambahan dari AndroidManifest APK dan verifikasi tanda tangan, pasang tool Android SDK yang tersedia di environment Termux, misalnya `aapt2` dan `apksigner`. Tanpa tool tersebut script tetap dapat membaca metadata APKM, tetapi status tanda tangan akan ditampilkan sebagai tidak dapat diverifikasi dan field yang tidak tersedia menjadi `Tidak tersedia`.
 
 ### Akses storage / semua file
 
@@ -124,4 +124,4 @@ APK harus berasal dari sumber tepercaya. Script tidak menonaktifkan verifikasi t
 
 ## Catatan format
 
-Script hanya menerima `.apkm` dengan struktur APKMirror yang memiliki `manifest.json` dan `base.apk`. `.apk`, `.apks`, `.xapk`, OBB, atau ZIP generik sengaja ditolak/tidak diproses.
+Script hanya menerima `.apkm` dengan struktur APKMirror yang memiliki `base.apk` dan salah satu metadata JSON: `manifest.json` (prioritas) atau `info.json` (fallback). `.apk`, `.apks`, `.xapk`, OBB, atau ZIP generik sengaja ditolak/tidak diproses.
