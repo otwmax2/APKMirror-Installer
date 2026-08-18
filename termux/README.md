@@ -1,94 +1,127 @@
-# Installer APKM untuk Termux
+# APKMirror APKM Installer untuk Termux
 
-`install-apkm.sh` adalah implementasi ulang bagian installer APKMirror yang dibutuhkan di Termux. Script ini **bukan** APK Android yang dikonversi menjadi shell script; script membuka arsip `.apkm`, mengambil `base.apk` dan seluruh split APK, lalu memasangnya dalam **satu sesi/transaksi** memakai Android Package Manager.
+`install-apkm.sh` adalah implementasi ulang installer `.apkm` untuk Termux. Arsip APKM standar APKMirror diproses sebagai ZIP yang berisi `manifest.json`, `base.apk`, dan split APK. Seluruh split yang dipilih dipasang dalam satu sesi Package Installer Android.
 
-## Yang didukung
+Repository ini berisi hasil decompile APKMirror Installer, bukan source build Android asli. Script ini dibuat ulang dari nol sebagai tool Termux standalone.
 
-- Arsip `.apkm` standar APKMirror (ZIP berisi `base.apk` dan split APK seperti `split_config.*.apk`).
-- Instalasi sebagai satu paket split melalui sesi `pm install-create`, `pm install-write`, dan `pm install-commit`.
-- Backend ADB memakai `adb install-multiple` sehingga APK tetap dibaca dari file lokal Termux.
-- Backend:
-  - `root`: memakai `su -c`/Magisk;
-  - `adb`: menggunakan `adb install-multiple` langsung dari file hasil ekstraksi di Termux;
-  - `direct`: mencoba menjalankan `pm` dari proses Termux;
-  - `auto`: memilih `root` bila `su` melaporkan UID 0, selain itu memakai `direct`.
-- Validasi integritas ZIP dan perlindungan dasar terhadap ZIP path traversal.
-- `--list`, `--dry-run`, `--keep`, pilihan user Android, replace, dan downgrade.
+## Backend instalasi
 
-File non-APK seperti `meta.json` tidak dipasang. OBB tidak ditangani karena OBB biasanya merupakan bagian dari format XAPK, bukan transaksi APKM split.
+Mode `auto` memakai urutan berikut:
 
-## Persiapan
+1. mendeteksi `su`/Magisk dengan `su -c id`, lalu memakai backend `root`;
+2. jika root tidak tersedia, mendeteksi `rish` dan memakai shell Shizuku;
+3. jika keduanya tidak tersedia, mencoba package manager normal dari UID Termux.
 
-Di Termux:
+Backend dapat dipilih manual:
+
+```sh
+./termux/install-apkm.sh --backend root app.apkm
+./termux/install-apkm.sh --backend shizuku app.apkm
+./termux/install-apkm.sh --backend normal app.apkm
+# alias yang tersedia: --root, --shizuku, --normal, --auto
+```
+
+`--adb` adalah alias untuk backend Shizuku/rish sesuai kebutuhan konfigurasi pengguna. Script ini tidak menggunakan ADB TCP secara langsung; Shizuku harus sudah menyediakan command `rish` yang dapat menjalankan `rish -c "pm ..."`.
+
+### Batasan installer normal Android
+
+Android Package Installer bawaan (`com.android.packageinstaller` atau komponen vendor penggantinya) umumnya hanya menerima satu APK melalui intent UI. Ia tidak memahami arsip `.apkm` dan tidak dapat menerima beberapa split APK sebagai satu transaksi melalui `termux-open`.
+
+Karena itu:
+
+- backend `normal` terlebih dahulu mencoba sesi `pm install-create/write/commit` dari Termux;
+- jika hanya satu APK yang dipilih dan sesi normal gagal, script menawarkan membuka installer paket bawaan Android;
+- jika beberapa split dipilih, instalasi APKM lengkap membutuhkan root atau Shizuku. Membuka `base.apk` saja dapat menghasilkan aplikasi yang tidak lengkap dan tidak dilakukan otomatis.
+
+## Instalasi dan dependensi
 
 ```sh
 pkg update
-pkg install bash unzip
+pkg install bash unzip jq
 termux-setup-storage
-```
-
-Perintah `termux-setup-storage` diperlukan jika file berada di `~/storage/downloads`.
-
-Jadikan script executable:
-
-```sh
 chmod +x termux/install-apkm.sh
 ```
 
-Jika script berada di direktori lain, sesuaikan path pada perintah di bawah.
+`jq` digunakan untuk membaca `manifest.json`. Untuk metadata tambahan dari AndroidManifest APK dan verifikasi tanda tangan, pasang tool Android SDK yang tersedia di environment Termux, misalnya `aapt2` dan `apksigner`. Tanpa tool tersebut script tetap dapat membaca metadata APKM, tetapi status tanda tangan akan ditampilkan sebagai tidak dapat diverifikasi dan field yang tidak tersedia menjadi `Tidak tersedia`.
 
-## Cara memakai
+### Akses storage / semua file
 
-### Perangkat rooted
-
-Pastikan Termux diberi izin root di Magisk/SuperSU, lalu:
+Jika folder shared storage belum dibuat, script akan menawarkan `termux-setup-storage`. Opsi berikut membuka halaman pengaturan Android untuk akses semua file, jika ROM menyediakan halaman tersebut:
 
 ```sh
-./termux/install-apkm.sh --root ~/storage/downloads/nama-aplikasi.apkm
+./termux/install-apkm.sh --all-files
 ```
 
-Tanpa `--root`, mode `auto` juga akan memilih root jika `su -c id` menghasilkan `uid=0`.
+Script tidak dapat memberikan special permission Android secara diam-diam. Pengguna tetap harus mengaktifkan izin di Settings. Untuk memilih file dari folder Downloads, gunakan `termux-setup-storage`.
 
-### Perangkat non-root dengan ADB
+## Mode interaktif
 
-Pasang ADB di Termux dan hubungkan perangkat melalui USB atau Wireless debugging:
+Jalankan tanpa argumen untuk membuka file picker:
 
 ```sh
-pkg install android-tools
-adb devices
-./termux/install-apkm.sh --adb ~/storage/downloads/nama-aplikasi.apkm
+./termux/install-apkm.sh
 ```
 
-Jika ada lebih dari satu perangkat ADB:
+File picker hanya menampilkan `.apkm`. File tersembunyi disembunyikan secara default. Tekan `h` di picker untuk menampilkan/menyembunyikannya, atau gunakan:
 
 ```sh
-./termux/install-apkm.sh --adb --serial SERIAL_PERANGKAT \
-  ~/storage/downloads/nama-aplikasi.apkm
+./termux/install-apkm.sh --show-hidden
 ```
 
-Perangkat harus sudah menampilkan status `device` (bukan `unauthorized` atau `offline`).
+Setelah arsip dipilih, script:
 
-### Pemeriksaan tanpa instalasi
+- memvalidasi ekstensi `.apkm` dan struktur APKM standar;
+- memeriksa integritas ZIP;
+- menolak absolute path, `..`, `.`, backslash, karakter kontrol, dan pola ZIP berbahaya;
+- menampilkan nama aplikasi, package name, nama file, ukuran, version name/code, min API, release, variant, arsitektur, DPI, bahasa, capabilities, dan status verifikasi tanda tangan;
+- membaca ABI, density, SDK, dan locale perangkat melalui `getprop`, `wm`, dan `settings`;
+- otomatis memilih split ABI, density, bahasa, serta split lainnya;
+- menampilkan tabel yang memungkinkan setiap split diaktifkan/nonaktifkan;
+- mendeteksi apakah package sudah terpasang dan memilih install, update, reinstall, atau downgrade;
+- meminta konfirmasi sebelum membuat sesi instalasi.
+
+Split yang dipilih ditampilkan dengan kategori `base`, `arsitektur`, `dpi`, `bahasa`, dan `lainnya`. `base.apk` selalu dipilih. Mematikan split yang diperlukan dapat membuat instalasi gagal atau aplikasi tidak lengkap.
+
+## Contoh operasi
+
+Pilih otomatis berdasarkan perangkat, tetapi tetap interaktif:
 
 ```sh
-# Tampilkan APK yang ada di dalam arsip
-./termux/install-apkm.sh --list ~/storage/downloads/nama-aplikasi.apkm
-
-# Validasi, ekstrak, dan tampilkan perintah yang akan dipakai
-./termux/install-apkm.sh --root --dry-run \
-  ~/storage/downloads/nama-aplikasi.apkm
+./termux/install-apkm.sh ~/storage/downloads/aplikasi.apkm
 ```
 
-## Keterbatasan Android
+Paksa update:
 
-Termux berjalan sebagai aplikasi biasa. Pada kebanyakan perangkat, UID Termux **tidak memiliki izin** untuk menjalankan sesi instalasi `pm`, sehingga mode `direct` biasanya berakhir dengan `Permission denied`, `SecurityException`, atau `INSTALL_FAILED_USER_RESTRICTED`. Itu adalah pembatasan Android, bukan kegagalan ekstraksi APKM.
+```sh
+./termux/install-apkm.sh --operation update aplikasi.apkm
+```
 
-Gunakan salah satu dari berikut:
+Downgrade:
 
-1. perangkat rooted dan `--root`;
-2. perangkat non-root dengan ADB yang sudah diotorisasi dan `--adb`;
-3. mekanisme shell berizin lain yang dapat mengeksekusi perintah package manager. Script ini tidak memanggil API Shizuku secara langsung; gunakan backend `adb` atau wrapper shell yang sesuai bila konfigurasi Shizuku Anda menyediakannya.
+```sh
+./termux/install-apkm.sh --operation downgrade --allow-downgrade \
+  aplikasi.apkm
+```
 
-`termux-open` tidak dipakai untuk setiap split APK: membuka `base.apk` dan split satu per satu tidak akan menghasilkan instalasi split yang valid. Semua APK harus diberikan bersama-sama kepada satu sesi package manager.
+Mode non-interaktif untuk uji/dry-run:
 
-Script tidak menonaktifkan verifikasi tanda tangan Android. APK harus berasal dari sumber yang dipercaya, dan semua split dalam arsip harus berasal dari varian/aplikasi yang sama. `-r` digunakan secara default untuk memperbarui instalasi yang sudah ada; tambahkan `--no-replace` jika perilaku tersebut tidak diinginkan.
+```sh
+./termux/install-apkm.sh --non-interactive --dry-run \
+  --backend normal --no-storage-prompt aplikasi.apkm
+```
+
+Gunakan `--keep` jika ingin menyimpan APK hasil ekstraksi untuk troubleshooting.
+
+## Verifikasi tanda tangan
+
+Jika `apksigner` tersedia, setiap APK yang dipilih diverifikasi dan digest sertifikat SHA-256 dibandingkan antar-split. Status yang mungkin:
+
+- `TERVERIFIKASI` — seluruh APK terverifikasi dan sertifikatnya konsisten;
+- `GAGAL atau sertifikat split tidak sama` — jangan lanjutkan sebelum sumber arsip diperiksa;
+- `Tidak dapat diverifikasi` — `apksigner` belum tersedia, bukan berarti APK aman.
+
+APK harus berasal dari sumber tepercaya. Script tidak menonaktifkan verifikasi tanda tangan Android dan tidak membypass validasi Package Manager.
+
+## Catatan format
+
+Script hanya menerima `.apkm` dengan struktur APKMirror yang memiliki `manifest.json` dan `base.apk`. `.apk`, `.apks`, `.xapk`, OBB, atau ZIP generik sengaja ditolak/tidak diproses.
